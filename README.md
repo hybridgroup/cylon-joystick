@@ -1,9 +1,11 @@
-# Cylon.js For Joystick
+# Cylon.js For Joysticks and Controllers
 
 Cylon.js (http://cylonjs.com) is a JavaScript framework for robotics and
 physical computing using Node.js
 
-This repository contains the Cylon adaptor for Joystick.
+This repository contains the Cylon adaptor for the PS3 controller, the Xbox 360
+controller, or any other joysticks and game controllers that are compatible with
+the Simple DirectMedia Layer (SDL)(http://www.libsdl.org/)
 
 Want to use Ruby on robots? Check out our sister project Artoo (http://artoo.io)
 
@@ -20,12 +22,12 @@ https://github.com/hybridgroup/cylon
 ## Using
 
 ```coffeescript
-# your example code here...
+# pending
 ```
 
 ## Connecting
 
-Explain how to connect from the computer to the device here...
+pending
 
 ## Contributing
 
@@ -39,4 +41,4 @@ None yet...
 
 ## License
 
-Copyright (c) 2013 Your Name Here. See `LICENSE` for more details
+Copyright (c) 2013 The Hybrid Group. Licensed under the Apache 2.0 license.

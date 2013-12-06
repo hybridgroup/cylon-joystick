@@ -2,8 +2,8 @@
  * cylon-joystick
  * http://cylonjs.com
  *
- * Copyright (c) 2013 Your Name Here
- * Your License Here
+ * Copyright (c) 2013 The Hybrid Group
+ * Licensed under the Apache 2.0 license.
 */
 
 
