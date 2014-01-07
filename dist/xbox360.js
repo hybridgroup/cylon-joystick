@@ -18,12 +18,36 @@
   require('./cylon-joystick');
 
   namespace("Cylon.Drivers.Joystick", function() {
+    var _ref;
     return this.Xbox360 = (function(_super) {
       __extends(Xbox360, _super);
 
-      function Xbox360(opts) {
-        Xbox360.__super__.constructor.apply(this, arguments);
+      function Xbox360() {
+        _ref = Xbox360.__super__.constructor.apply(this, arguments);
+        return _ref;
       }
+
+      Xbox360.prototype.start = function(callback) {
+        this.defineDriverEvent({
+          eventName: 'a:press'
+        });
+        this.defineDriverEvent({
+          eventName: 'b:press'
+        });
+        this.defineDriverEvent({
+          eventName: 'lefttrigger'
+        });
+        this.defineDriverEvent({
+          eventName: 'righttrigger'
+        });
+        this.defineDriverEvent({
+          eventName: 'left:move'
+        });
+        this.defineDriverEvent({
+          eventName: 'right:move'
+        });
+        return Xbox360.__super__.start.apply(this, arguments);
+      };
 
       return Xbox360;
 
