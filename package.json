@@ -2,7 +2,7 @@
   "name": "cylon-joystick",
   "version": "0.1.0",
   "main": "dist/cylon-joystick.js",
-  "description": "Cylon module for any SDL joystick",
+  "description": "Cylon module for any HID joystick",
   "homepage": "http://cylonjs.com",
   "bugs": "https://github.com/hybridgroup/cylon-joystick/issues",
   "author": {
@@ -33,6 +33,6 @@
   },
   "dependencies": {
     "node-namespace": "~1.0.0",
-    "cylon": "~0.7.0"
+    "cylon": "~0.8.0"
   }
 }

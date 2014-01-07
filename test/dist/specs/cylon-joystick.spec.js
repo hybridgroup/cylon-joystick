@@ -1,21 +1,10 @@
 (function() {
   'use strict';
-  var module, namespace;
+  var joystick;
 
-  namespace = require('node-namespace');
+  joystick = source("cylon-joystick");
 
-  namespace('Cylon', function() {
-    return this.Basestar = (function() {
-      function Basestar() {}
-
-      return Basestar;
-
-    })();
-  });
-
-  module = source("cylon-joystick");
-
-  describe("basic tests", function() {
+  describe("Cylon.Joystick", function() {
     it("standard async test", function(done) {
       var bool;
       bool = false;
@@ -45,11 +34,14 @@
       data[0].should.be.eql(obj);
       return data[0].should.be.equal(obj);
     });
-    it("should be able to register", function() {
-      return module.register.should.be.a('function');
+    it("can register", function() {
+      return joystick.register.should.be.a('function');
     });
-    return it("should be able to create adaptor", function() {
-      return module.adaptor.should.be.a('function');
+    it("can create an adaptor", function() {
+      return joystick.adaptor.should.be.a('function');
+    });
+    return it("can create a driver", function() {
+      return joystick.driver.should.be.a('function');
     });
   });
 

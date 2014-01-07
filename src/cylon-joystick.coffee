@@ -2,34 +2,26 @@
  * cylon-joystick
  * http://cylonjs.com
  *
- * Copyright (c) 2013 The Hybrid Group
+ * Copyright (c) 2013-2014 The Hybrid Group
  * Licensed under the Apache 2.0 license.
 ###
 
-'use strict'
+'use strict';
 
 namespace = require 'node-namespace'
 
 require 'cylon'
+require './adaptor'
+require './xbox360'
 
 module.exports =
   adaptor: (args...) ->
-    # Provide a function that's an instance of your adaptor here. For example,
-    # the Sphero adaptor creates a new instance of the Sphero adaptor class:
-    #
-    # new Cylon.Adaptor.Sphero(args...)
-    return ->
+    new Cylon.Adaptors.Joystick(args...)
 
-  driver: (args...) ->
-    # Provide a function that's an instance of your driver here. For example,
-    # the Sphero adaptor creates a new instance of the Sphero driver class:
-    #
-    # new Cylon.Driver.Sphero(args...)
-    return ->
+  driver: (opts) ->
+    new Cylon.Drivers.Joystick.Xbox360(opts)
 
   register: (robot) ->
-    # Bootstrap your adaptor here. For example, with a Sphero, you would call
-    # the registerAdaptor and registerDriver functions as follows:
-    #
-    # robot.registerAdaptor 'cylon-sphero', 'sphero'
-    # robot.registerDriver 'cylon-sphero', 'sphero'
+    Logger.debug "Registering Joystick adaptor and drivers for #{robot.name}"
+    robot.registerAdaptor 'cylon-joystick', 'joystick'
+    robot.registerDriver 'cylon-joystick', 'xbox360'

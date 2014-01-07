@@ -2,7 +2,7 @@
  * cylon-joystick
  * http://cylonjs.com
  *
- * Copyright (c) 2013 The Hybrid Group
+ * Copyright (c) 2013-2014 The Hybrid Group
  * Licensed under the Apache 2.0 license.
 */
 
@@ -16,18 +16,28 @@
 
   require('cylon');
 
+  require('./adaptor');
+
+  require('./xbox360');
+
   module.exports = {
     adaptor: function() {
       var args;
       args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
-      return function() {};
+      return (function(func, args, ctor) {
+        ctor.prototype = func.prototype;
+        var child = new ctor, result = func.apply(child, args);
+        return Object(result) === result ? result : child;
+      })(Cylon.Adaptors.Joystick, args, function(){});
     },
-    driver: function() {
-      var args;
-      args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
-      return function() {};
+    driver: function(opts) {
+      return new Cylon.Drivers.Joystick.Xbox360(opts);
     },
-    register: function(robot) {}
+    register: function(robot) {
+      Logger.debug("Registering Joystick adaptor and drivers for " + robot.name);
+      robot.registerAdaptor('cylon-joystick', 'joystick');
+      return robot.registerDriver('cylon-joystick', 'xbox360');
+    }
   };
 
 }).call(this);

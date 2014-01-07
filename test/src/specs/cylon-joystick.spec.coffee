@@ -1,14 +1,8 @@
-'use strict'
+'use strict';
 
-# Needed so that tests don't implode
-namespace = require 'node-namespace'
-namespace 'Cylon', ->
-  class @Basestar
-    constructor: ->
+joystick = source("cylon-joystick")
 
-module = source "cylon-joystick"
-
-describe "basic tests", ->
+describe "Cylon.Joystick", ->
   it "standard async test", (done) ->
     bool = false
     bool.should.be.false
@@ -35,8 +29,11 @@ describe "basic tests", ->
     # hard equal
     data[0].should.be.equal obj
 
-  it "should be able to register", ->
-    module.register.should.be.a 'function'
+  it "can register", ->
+    joystick.register.should.be.a 'function'
 
-  it "should be able to create adaptor", ->
-    module.adaptor.should.be.a 'function'
+  it "can create an adaptor", ->
+    joystick.adaptor.should.be.a 'function'
+
+  it "can create a driver", ->
+    joystick.driver.should.be.a 'function'
