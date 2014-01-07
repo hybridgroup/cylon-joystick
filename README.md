@@ -3,30 +3,34 @@
 Cylon.js (http://cylonjs.com) is a JavaScript framework for robotics and
 physical computing using Node.js
 
-This repository contains the Cylon adaptor for the PS3 controller, the Xbox 360
-controller, or any other joysticks and game controllers that are HID devices.
+This repository contains the Cylon adaptor for the Xbox 360 controller, or any other joysticks and game controllers that are HID devices.
 
 Want to use Ruby on robots? Check out our sister project Artoo (http://artoo.io)
 
 Want to use the Go programming language to power your robots? Check out our sister project Gobot (http://gobot.io).
 
-For more information about Cylon, check out our repo at https://github.com/hybridgroup/cylon
+[![Build Status](https://secure.travis-ci.org/hybridgroup/cylon-joystick.png?branch=master)](http://travis-ci.org/hybridgroup/cylon-joystick)
 
-## Installing
+## Getting Started
+Install the module with: `npm install cylon-joystick`
 
-    npm install cylon-joystick
+## Examples
 
-## Using
+### JavaScript
 
-```coffeescript
-# pending
+```javascript
+// example goes here...
 ```
 
-## Connecting
+### CoffeeScript
+```
+# example goes here...
+```
 
-pending
+## Documentation
+We're busy adding documentation to our web site at http://cylonjs.com/ please check there as we continue to work on Cylon.js
 
-## Contributing
+Thank you!
 
 ## Contributing
 
@@ -48,4 +52,4 @@ None yet...
 
 ## License
 
-Copyright (c) 2013 The Hybrid Group. Licensed under the Apache 2.0 license.
+Copyright (c) 2013-2014 The Hybrid Group. Licensed under the Apache 2.0 license.
