@@ -10,10 +10,11 @@
 
 namespace = require 'node-namespace'
 require './cylon-joystick'
+XboxController = require 'xbox-controller'
 
 namespace "Cylon.Adaptors", ->
   class @Joystick extends Cylon.Adaptor
     constructor: (opts = {}) ->
       super
-      @joystick = null
-      @connector = null
+      @joystick = new XboxController
+      @connector = @joystick

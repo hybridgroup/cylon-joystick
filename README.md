@@ -19,12 +19,36 @@ Install the module with: `npm install cylon-joystick`
 ### JavaScript
 
 ```javascript
-// example goes here...
+var Cylon = require('cylon');
+
+Cylon.robot({
+  connection: { name: 'joystick', adaptor: 'joystick' },
+  device: {name: 'joystick', driver: 'xbox360'},
+
+  work: function(my) {
+    my.joystick.on("left:move", function(position) { 
+      console.log(position);
+    });
+  }
+}).start();
 ```
 
 ### CoffeeScript
 ```
-# example goes here...
+Cylon = require 'cylon'
+
+Cylon.robot
+  connection:
+    name: 'joystick', adaptor: 'joystick'
+
+  device:
+    name: 'joystick', driver: 'xbox360'
+
+  work: (my) ->
+    my.joystick.on "left:move", (position) ->
+      console.log position
+
+.start()
 ```
 
 ## Documentation

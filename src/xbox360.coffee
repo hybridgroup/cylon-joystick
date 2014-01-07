@@ -12,5 +12,12 @@ require './cylon-joystick'
 
 namespace "Cylon.Drivers.Joystick", ->
   class @Xbox360 extends Cylon.Driver
-    constructor: (opts) ->
+    start: (callback) ->
+      @defineDriverEvent eventName: 'a:press'
+      @defineDriverEvent eventName: 'b:press'
+      @defineDriverEvent eventName: 'lefttrigger'
+      @defineDriverEvent eventName: 'righttrigger'
+      @defineDriverEvent eventName: 'left:move'
+      @defineDriverEvent eventName: 'right:move'
+
       super
