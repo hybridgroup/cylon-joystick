@@ -30,8 +30,14 @@
         return Object(result) === result ? result : child;
       })(Cylon.Adaptors.Joystick, args, function(){});
     },
-    driver: function(opts) {
-      return new Cylon.Drivers.Joystick.Xbox360(opts);
+    driver: function() {
+      var args;
+      args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
+      return (function(func, args, ctor) {
+        ctor.prototype = func.prototype;
+        var child = new ctor, result = func.apply(child, args);
+        return Object(result) === result ? result : child;
+      })(Cylon.Drivers.Joystick.Xbox360, args, function(){});
     },
     register: function(robot) {
       Logger.debug("Registering Joystick adaptor and drivers for " + robot.name);

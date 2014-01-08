@@ -11,14 +11,13 @@
 namespace = require 'node-namespace'
 
 require './cylon-joystick'
-require './xbox360'
+XboxController = require 'xbox-controller'
 
 namespace "Cylon.Adaptors", ->
   class @Joystick extends Cylon.Adaptor
     constructor: (opts = {}) ->
       super
-      console.log opts
-      @connector = @joystick = new Cylon.Drivers.Joystick.Xbox360(opts)
+      @connector = @joystick = new XboxController
       @proxyMethods @commands(), @joystick, this
 
     commands: ->
@@ -57,4 +56,9 @@ namespace "Cylon.Adaptors", ->
       @defineAdaptorEvent eventName: 'left:move'
       @defineAdaptorEvent eventName: 'right:move'
 
+      super
+
+    disconnect: ->
+      @joystick.setLed 0x00
+      @joystick.rumble(0, 0)
       super

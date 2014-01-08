@@ -18,8 +18,8 @@ module.exports =
   adaptor: (args...) ->
     new Cylon.Adaptors.Joystick(args...)
 
-  driver: (opts) ->
-    new Cylon.Drivers.Joystick.Xbox360(opts)
+  driver: (args...) ->
+    new Cylon.Drivers.Joystick.Xbox360(args...)
 
   register: (robot) ->
     Logger.debug "Registering Joystick adaptor and drivers for #{robot.name}"

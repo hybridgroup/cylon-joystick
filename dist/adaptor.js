@@ -9,7 +9,7 @@
 
 (function() {
   'use strict';
-  var namespace,
+  var XboxController, namespace,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -17,7 +17,7 @@
 
   require('./cylon-joystick');
 
-  require('./xbox360');
+  XboxController = require('xbox-controller');
 
   namespace("Cylon.Adaptors", function() {
     return this.Joystick = (function(_super) {
@@ -28,8 +28,7 @@
           opts = {};
         }
         Joystick.__super__.constructor.apply(this, arguments);
-        console.log(opts);
-        this.connector = this.joystick = new Cylon.Drivers.Joystick.Xbox360(opts);
+        this.connector = this.joystick = new XboxController;
         this.proxyMethods(this.commands(), this.joystick, this);
       }
 
@@ -62,6 +61,12 @@
           eventName: 'right:move'
         });
         return Joystick.__super__.connect.apply(this, arguments);
+      };
+
+      Joystick.prototype.disconnect = function() {
+        this.joystick.setLed(0x00);
+        this.joystick.rumble(0, 0);
+        return Joystick.__super__.disconnect.apply(this, arguments);
       };
 
       return Joystick;
