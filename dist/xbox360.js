@@ -1,5 +1,5 @@
 /*
- * Cylong XBox360 joystick driver
+ * Cylon.js Xbox 360 Joystick driver
  * http://cylonjs.com
  *
  * Copyright (c) 2013-2014 The Hybrid Group
@@ -18,22 +18,33 @@
   require('./cylon-joystick');
 
   namespace("Cylon.Drivers.Joystick", function() {
-    var _ref;
     return this.Xbox360 = (function(_super) {
       __extends(Xbox360, _super);
 
-      function Xbox360() {
-        _ref = Xbox360.__super__.constructor.apply(this, arguments);
-        return _ref;
+      function Xbox360(opts) {
+        if (opts == null) {
+          opts = {};
+        }
+        Xbox360.__super__.constructor.apply(this, arguments);
+        this.proxyMethods(this.commands(), this.connection, this);
       }
 
+      Xbox360.prototype.commands = function() {
+        return ["rumble", "setLed"];
+      };
+
       Xbox360.prototype.start = function(callback) {
-        this.defineDriverEvent({
-          eventName: 'a:press'
-        });
-        this.defineDriverEvent({
-          eventName: 'b:press'
-        });
+        var button, buttons, _i, _len;
+        buttons = ["dup", "ddown", "dleft", "dright", "xboxbutton", "start", "back", "leftstick", "rightstick", "leftshoulder", "rightshoulder", "a", "b", "x", "y"];
+        for (_i = 0, _len = buttons.length; _i < _len; _i++) {
+          button = buttons[_i];
+          this.defineDriverEvent({
+            eventName: "" + button + ":press"
+          });
+          this.defineDriverEvent({
+            eventName: "" + button + ":release"
+          });
+        }
         this.defineDriverEvent({
           eventName: 'lefttrigger'
         });

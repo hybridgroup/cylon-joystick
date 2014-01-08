@@ -9,7 +9,7 @@
 
 (function() {
   'use strict';
-  var XboxController, namespace,
+  var namespace,
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -17,7 +17,7 @@
 
   require('./cylon-joystick');
 
-  XboxController = require('xbox-controller');
+  require('./xbox360');
 
   namespace("Cylon.Adaptors", function() {
     return this.Joystick = (function(_super) {
@@ -28,9 +28,41 @@
           opts = {};
         }
         Joystick.__super__.constructor.apply(this, arguments);
-        this.joystick = new XboxController;
-        this.connector = this.joystick;
+        console.log(opts);
+        this.connector = this.joystick = new Cylon.Drivers.Joystick.Xbox360(opts);
+        this.proxyMethods(this.commands(), this.joystick, this);
       }
+
+      Joystick.prototype.commands = function() {
+        return ["rumble", "setLed"];
+      };
+
+      Joystick.prototype.connect = function(callback) {
+        var button, buttons, _i, _len;
+        buttons = ["dup", "ddown", "dleft", "dright", "xboxbutton", "start", "back", "leftstick", "rightstick", "leftshoulder", "rightshoulder", "a", "b", "x", "y"];
+        for (_i = 0, _len = buttons.length; _i < _len; _i++) {
+          button = buttons[_i];
+          this.defineAdaptorEvent({
+            eventName: "" + button + ":press"
+          });
+          this.defineAdaptorEvent({
+            eventName: "" + button + ":release"
+          });
+        }
+        this.defineAdaptorEvent({
+          eventName: 'lefttrigger'
+        });
+        this.defineAdaptorEvent({
+          eventName: 'righttrigger'
+        });
+        this.defineAdaptorEvent({
+          eventName: 'left:move'
+        });
+        this.defineAdaptorEvent({
+          eventName: 'right:move'
+        });
+        return Joystick.__super__.connect.apply(this, arguments);
+      };
 
       return Joystick;
 
