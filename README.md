@@ -16,6 +16,12 @@ sister project Gobot (http://gobot.io).
 ## Getting Started
 Install the module with: `npm install cylon-joystick`
 
+## Note for OS X Users
+
+You'll need to install OS X Drivers for the Xbox Controller from
+http://tattiebogle.net/index.php/ProjectRoot/Xbox360Controller/OsxDriver if you
+want to use it.
+
 ## Examples
 
 ### JavaScript
