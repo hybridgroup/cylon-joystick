@@ -3,8 +3,9 @@
 Cylon.js (http://cylonjs.com) is a JavaScript framework for robotics and
 physical computing using Node.js
 
-This repository contains the Cylon adaptor for the Xbox 360 controller, or any
-other joysticks and game controllers that are HID devices.
+This repository contains the Cylon adaptor for the Xbox 360 controller. It depends heavily on the https://github.com/andrew/node-xbox-controller module, thanks [@andrew](https://github.com/andrew)!
+
+The goal is to also support any other joysticks and game controllers that are HID devices.
 
 Want to use Ruby on robots? Check out our sister project Artoo (http://artoo.io)
 
