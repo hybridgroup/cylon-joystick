@@ -1,7 +1,6 @@
 # Cylon.js For Joysticks and Controllers
 
-Cylon.js (http://cylonjs.com) is a JavaScript framework for robotics and
-physical computing using Node.js
+Cylon.js (http://cylonjs.com) is a JavaScript framework for robotics and physical computing using Node.js
 
 This repository contains the Cylon adaptor for the Xbox 360 controller. It depends heavily on the https://github.com/andrew/node-xbox-controller module, thanks [@andrew](https://github.com/andrew)!
 
@@ -9,8 +8,7 @@ The goal is to also support any other joysticks and game controllers that are HI
 
 Want to use Ruby on robots? Check out our sister project Artoo (http://artoo.io)
 
-Want to use the Go programming language to power your robots? Check out our
-sister project Gobot (http://gobot.io).
+Want to use the Go programming language to power your robots? Check out our sister project Gobot (http://gobot.io).
 
 [![Build Status](https://secure.travis-ci.org/hybridgroup/cylon-joystick.png?branch=master)](http://travis-ci.org/hybridgroup/cylon-joystick)
 
@@ -19,9 +17,7 @@ Install the module with: `npm install cylon-joystick`
 
 ## Note for OS X Users
 
-You'll need to install OS X Drivers for the Xbox Controller from
-http://tattiebogle.net/index.php/ProjectRoot/Xbox360Controller/OsxDriver if you
-want to use it.
+You'll need to install OS X Drivers for the Xbox 360 Controller from http://tattiebogle.net/index.php/ProjectRoot/Xbox360Controller/OsxDriver if you want to use it.
 
 ## Examples
 
@@ -43,6 +39,7 @@ Cylon.robot({
 ```
 
 ### CoffeeScript
+
 ```
 Cylon = require 'cylon'
 
@@ -89,7 +86,9 @@ complicate merges and should be done seperately.
 
 ## Release History
 
-None yet...
+[![NPM](https://nodei.co/npm/cylon-joystick.png?compact=true)](https://nodei.co/npm/cylon-joystick/)
+
+Version 0.1.0 - Initial release
 
 ## License
 
