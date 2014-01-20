@@ -20,6 +20,10 @@
 
   require('./drivers/xbox360');
 
+  require('./adaptors/dualshock3');
+
+  require('./drivers/dualshock3');
+
   module.exports = {
     adaptor: function() {
       var args;
@@ -31,18 +35,29 @@
       })(Cylon.Adaptors.Joystick.Xbox360, args, function(){});
     },
     driver: function() {
-      var args;
+      var args, driver;
       args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
-      return (function(func, args, ctor) {
-        ctor.prototype = func.prototype;
-        var child = new ctor, result = func.apply(child, args);
-        return Object(result) === result ? result : child;
-      })(Cylon.Drivers.Joystick.Xbox360, args, function(){});
+      driver = String(args[0].name).toLowerCase();
+      switch (driver) {
+        case "xbox360":
+          return (function(func, args, ctor) {
+            ctor.prototype = func.prototype;
+            var child = new ctor, result = func.apply(child, args);
+            return Object(result) === result ? result : child;
+          })(Cylon.Drivers.Joystick.Xbox360, args, function(){});
+        case "dualshock3":
+          return (function(func, args, ctor) {
+            ctor.prototype = func.prototype;
+            var child = new ctor, result = func.apply(child, args);
+            return Object(result) === result ? result : child;
+          })(Cylon.Drivers.Joystick.Dualshock3, args, function(){});
+      }
     },
     register: function(robot) {
       Logger.debug("Registering Joystick adaptor and drivers for " + robot.name);
       robot.registerAdaptor('cylon-joystick', 'joystick');
-      return robot.registerDriver('cylon-joystick', 'xbox360');
+      robot.registerDriver('cylon-joystick', 'xbox360');
+      return robot.registerDriver('cylon-joystick', 'dualshock3');
     }
   };
 
