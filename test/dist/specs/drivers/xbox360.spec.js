@@ -2,7 +2,7 @@
   'use strict';
   var keyboard;
 
-  keyboard = source("xbox360");
+  keyboard = source("drivers/xbox360");
 
   describe("Cylon.Drivers.Joystick.Xbox360", function() {
     var button;

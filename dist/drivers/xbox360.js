@@ -15,7 +15,7 @@
 
   namespace = require('node-namespace');
 
-  require('./cylon-joystick');
+  require('../cylon-joystick');
 
   namespace("Cylon.Drivers.Joystick", function() {
     return this.Xbox360 = (function(_super) {

@@ -16,9 +16,9 @@
 
   require('cylon');
 
-  require('./adaptor');
+  require('./adaptors/xbox360');
 
-  require('./xbox360');
+  require('./drivers/xbox360');
 
   module.exports = {
     adaptor: function() {
@@ -28,7 +28,7 @@
         ctor.prototype = func.prototype;
         var child = new ctor, result = func.apply(child, args);
         return Object(result) === result ? result : child;
-      })(Cylon.Adaptors.Joystick, args, function(){});
+      })(Cylon.Adaptors.Joystick.Xbox360, args, function(){});
     },
     driver: function() {
       var args;

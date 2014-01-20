@@ -10,7 +10,7 @@
 
 namespace = require 'node-namespace'
 
-require './cylon-joystick'
+require '../cylon-joystick'
 
 namespace "Cylon.Drivers.Joystick", ->
   class @Xbox360 extends Cylon.Driver

@@ -1,5 +1,5 @@
 /*
- * Cylonjs Joystick adaptor
+ * Cylon.js Xbox 360 Joystick adaptor
  * http://cylonjs.com
  *
  * Copyright (c) 2013-2014 The Hybrid Group
@@ -15,28 +15,38 @@
 
   namespace = require('node-namespace');
 
-  require('./cylon-joystick');
-
   XboxController = require('xbox-controller');
 
-  namespace("Cylon.Adaptors", function() {
-    return this.Joystick = (function(_super) {
-      __extends(Joystick, _super);
+  require('../cylon-joystick');
 
-      function Joystick(opts) {
+  namespace("Cylon.Adaptors.Joystick", function() {
+    return this.Xbox360 = (function(_super) {
+      __extends(Xbox360, _super);
+
+      function Xbox360(opts) {
         if (opts == null) {
           opts = {};
         }
-        Joystick.__super__.constructor.apply(this, arguments);
-        this.connector = this.joystick = new XboxController;
-        this.proxyMethods(this.commands(), this.joystick, this);
+        if (opts.initialize == null) {
+          opts.initialize = true;
+        }
+        this.joystick = null;
+        Xbox360.__super__.constructor.apply(this, arguments);
+        if (opts.initialize) {
+          this.connectToController();
+        }
       }
 
-      Joystick.prototype.commands = function() {
+      Xbox360.prototype.connectToController = function() {
+        this.connector = this.joystick = new XboxController;
+        return this.proxyMethods(this.commands(), this.joystick, this);
+      };
+
+      Xbox360.prototype.commands = function() {
         return ["rumble", "setLed"];
       };
 
-      Joystick.prototype.connect = function(callback) {
+      Xbox360.prototype.connect = function(callback) {
         var button, buttons, dir, event, _i, _j, _k, _len, _len1, _len2, _ref, _ref1;
         buttons = ["xboxbutton", "start", "back", "leftstick", "rightstick", "leftshoulder", "rightshoulder", "a", "b", "x", "y"];
         for (_i = 0, _len = buttons.length; _i < _len; _i++) {
@@ -72,16 +82,16 @@
         this.defineAdaptorEvent({
           eventName: 'right:move'
         });
-        return Joystick.__super__.connect.apply(this, arguments);
+        return Xbox360.__super__.connect.apply(this, arguments);
       };
 
-      Joystick.prototype.disconnect = function() {
+      Xbox360.prototype.disconnect = function() {
         this.joystick.setLed(0x00);
         this.joystick.rumble(0, 0);
-        return Joystick.__super__.disconnect.apply(this, arguments);
+        return Xbox360.__super__.disconnect.apply(this, arguments);
       };
 
-      return Joystick;
+      return Xbox360;
 
     })(Cylon.Adaptor);
   });
