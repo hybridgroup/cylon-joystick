@@ -47,8 +47,8 @@
       };
 
       Xbox360.prototype.connect = function(callback) {
-        var button, buttons, dir, event, _i, _j, _k, _len, _len1, _len2, _ref, _ref1;
-        buttons = ["xboxbutton", "start", "back", "leftstick", "rightstick", "leftshoulder", "rightshoulder", "a", "b", "x", "y"];
+        var button, buttons, dir, event, _i, _j, _k, _l, _len, _len1, _len2, _len3, _ref, _ref1, _ref2;
+        buttons = ["xboxbutton", "start", "back", "leftshoulder", "rightshoulder", "a", "b", "x", "y"];
         for (_i = 0, _len = buttons.length; _i < _len; _i++) {
           button = buttons[_i];
           this.defineAdaptorEvent({
@@ -67,6 +67,14 @@
             this.defineAdaptorEvent({
               eventName: "d" + dir + ":" + event,
               targetEventName: "dpad:" + dir + ":" + event
+            });
+          }
+          _ref2 = ["left", "right"];
+          for (_l = 0, _len3 = _ref2.length; _l < _len3; _l++) {
+            dir = _ref2[_l];
+            this.defineAdaptorEvent({
+              eventName: "" + dir + "stick:" + event,
+              targetEventName: "" + dir + ":" + event
             });
           }
         }

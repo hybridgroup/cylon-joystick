@@ -35,9 +35,6 @@ namespace "Cylon.Adaptors.Joystick", ->
         "start",
         "back",
 
-        "leftstick",
-        "rightstick",
-
         "leftshoulder",
         "rightshoulder",
 
@@ -53,9 +50,14 @@ namespace "Cylon.Adaptors.Joystick", ->
 
       for event in ["press", "release"]
         for dir in ["up", "down", "left", "right"]
-            @defineAdaptorEvent
-              eventName: "d#{dir}:#{event}"
-              targetEventName: "dpad:#{dir}:#{event}"
+          @defineAdaptorEvent
+            eventName: "d#{dir}:#{event}"
+            targetEventName: "dpad:#{dir}:#{event}"
+
+        for dir in ["left", "right"]
+          @defineAdaptorEvent
+            eventName: "#{dir}stick:#{event}"
+            targetEventName: "#{dir}:#{event}"
 
       @defineAdaptorEvent eventName: 'lefttrigger'
       @defineAdaptorEvent eventName: 'righttrigger'

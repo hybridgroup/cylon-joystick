@@ -6,46 +6,46 @@ Cylon.robot
   device: { name: 'controller', driver: 'xbox360' }
 
   work: (my) ->
+    button_states = ["press", "release"]
+
     buttons = [
-      "dpad:up",
-      "dpad:down",
-      "dpad:left",
-      "dpad:right",
-
-      "xboxbutton",
-
-      "start",
-      "back",
-
-      "leftstick",
-      "rightstick",
+      "a",
+      "b",
+      "x",
+      "y",
 
       "leftshoulder",
       "rightshoulder",
 
-      "a",
-      "b",
-      "x",
-      "y"
+      "left",
+      "right",
+
+      "back",
+      "start",
+
+      "dpad:left",
+      "dpad:right",
+      "dpad:up",
+      "dpad:down",
+
+      "xboxbutton"
     ]
 
     buttons.forEach (button) ->
-      my.controller.on "#{button}:press", ->
-        console.log button + " pressed"
+      button_states.forEach (state) ->
+        my.controller.on "#{button}:#{state}", ->
+          console.log button, state
 
-      my.controller.on "#{button}:release", ->
-        console.log button + " released"
+    my.controller.on "left:move", (pos) ->
+      console.log "left:", pos
 
-    my.controller.on 'lefttrigger', (position) ->
-      console.log "Left Trigger: ", position
+    my.controller.on "right:move", (pos) ->
+      console.log "right:", pos
 
-    my.controller.on 'righttrigger', (position) ->
-      console.log "Right Trigger: ", position
+    my.controller.on "righttrigger", (pos) ->
+      console.log "right trigger:", pos
 
-    my.controller.on 'left:move', (position) ->
-      console.log "Left Stick: ", position
-
-    my.controller.on 'right:move', (position) ->
-      console.log "Right Stick: ", position
+    my.controller.on "lefttrigger", (pos) ->
+      console.log "left trigger:", pos
 
 Cylon.start()

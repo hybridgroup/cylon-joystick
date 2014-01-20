@@ -33,8 +33,8 @@ namespace "Cylon.Drivers.Joystick", ->
         "start",
         "back",
 
-        "leftstick",
-        "rightstick",
+        "left",
+        "right",
 
         "leftshoulder",
         "rightshoulder",
