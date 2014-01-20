@@ -2,8 +2,8 @@ Cylon = require 'cylon'
 
 Cylon.robot
   name: "NewBot"
-  connection: { name: 'joystick', adaptor: 'joystick' }
-  device: { name: 'controller', driver: 'xbox360' }
+  connection: { name: 'joystick', adaptor: 'joystick', controller: 'dualshock3' }
+  device: { name: 'controller', driver: 'dualshock3' }
 
   work: (my) ->
     buttons = [
@@ -12,21 +12,24 @@ Cylon.robot
       "dpad:left",
       "dpad:right",
 
-      "xboxbutton",
+      "psxbutton",
 
       "start",
-      "back",
+      "select",
 
       "leftstick",
       "rightstick",
 
-      "leftshoulder",
-      "rightshoulder",
+      "l1",
+      "r1",
 
-      "a",
-      "b",
+      "l2",
+      "r2",
+
       "x",
-      "y"
+      "circle",
+      "triangle",
+      "square"
     ]
 
     buttons.forEach (button) ->

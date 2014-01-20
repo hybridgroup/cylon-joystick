@@ -20,7 +20,15 @@ require './drivers/dualshock3'
 
 module.exports =
   adaptor: (args...) ->
-    new Cylon.Adaptors.Joystick.Xbox360(args...)
+    controller = String(args[0].extraParams.controller).toLowerCase()
+
+    switch controller
+      when 'xbox360'
+        new Cylon.Adaptors.Joystick.Xbox360(args...)
+      when 'dualshock3'
+        new Cylon.Adaptors.Joystick.DualShock3(args...)
+      when 'undefined'
+        throw new Error "No controller type passed to connection."
 
   driver: (args...) ->
     driver = String(args[0].name).toLowerCase()
@@ -33,7 +41,8 @@ module.exports =
 
   register: (robot) ->
     Logger.debug "Registering Joystick adaptor and drivers for #{robot.name}"
-    robot.registerAdaptor 'cylon-joystick', 'joystick'
+    robot.registerAdaptor 'cylon-joystick', 'xbox360'
+    robot.registerAdaptor 'cylon-joystick', 'dualshock3'
 
     robot.registerDriver 'cylon-joystick', 'xbox360'
     robot.registerDriver 'cylon-joystick', 'dualshock3'
