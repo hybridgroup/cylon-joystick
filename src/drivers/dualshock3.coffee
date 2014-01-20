@@ -13,7 +13,43 @@ namespace = require 'node-namespace'
 require '../cylon-joystick'
 
 namespace "Cylon.Drivers.Joystick", ->
-  class @Dualshock3 extends Cylon.Driver
+  class @DualShock3 extends Cylon.Driver
     constructor: (opts = {}) ->
       super
       @proxyMethods @commands(), @connection, this
+
+    start: (callback) ->
+      buttons = [
+        "r1",
+        "l1",
+
+        "r2",
+        "l2",
+
+        "start",
+        "select",
+
+        "x",
+        "triangle",
+        "circle",
+        "square",
+
+        "left",
+        "right",
+
+        "dpad:left",
+        "dpad:right",
+        "dpad:up",
+        "dpad:down",
+
+        "psbutton"
+      ]
+
+      for state in ['press', 'release']
+        for button in buttons
+          @defineDriverEvent eventName: "#{button}:#{state}"
+
+      @defineDriverEvent eventName: 'left:move'
+      @defineDriverEvent eventName: 'right:move'
+
+      super

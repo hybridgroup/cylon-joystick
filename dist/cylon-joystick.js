@@ -62,7 +62,7 @@
             ctor.prototype = func.prototype;
             var child = new ctor, result = func.apply(child, args);
             return Object(result) === result ? result : child;
-          })(Cylon.Drivers.Joystick.Dualshock3, args, function(){});
+          })(Cylon.Drivers.Joystick.DualShock3, args, function(){});
       }
     },
     register: function(robot) {

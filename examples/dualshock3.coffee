@@ -6,19 +6,13 @@ Cylon.robot
   device: { name: 'controller', driver: 'dualshock3' }
 
   work: (my) ->
+    button_states = ["press", "release"]
+
     buttons = [
-      "dpad:up",
-      "dpad:down",
-      "dpad:left",
-      "dpad:right",
-
-      "psxbutton",
-
-      "start",
-      "select",
-
-      "leftstick",
-      "rightstick",
+      "x",
+      "square",
+      "circle",
+      "triangle",
 
       "l1",
       "r1",
@@ -26,29 +20,29 @@ Cylon.robot
       "l2",
       "r2",
 
-      "x",
-      "circle",
-      "triangle",
-      "square"
+      "left",
+      "right",
+
+      "select",
+      "start",
+
+      "dpad:left",
+      "dpad:right",
+      "dpad:up",
+      "dpad:down",
+
+      "psbutton"
     ]
 
     buttons.forEach (button) ->
-      my.controller.on "#{button}:press", ->
-        console.log button + " pressed"
+      button_states.forEach (state) ->
+        my.controller.on "#{button}:#{state}", ->
+          console.log button, state
 
-      my.controller.on "#{button}:release", ->
-        console.log button + " released"
+    my.controller.on "left:move", (pos) ->
+      console.log "left:", pos
 
-    my.controller.on 'lefttrigger', (position) ->
-      console.log "Left Trigger: ", position
-
-    my.controller.on 'righttrigger', (position) ->
-      console.log "Right Trigger: ", position
-
-    my.controller.on 'left:move', (position) ->
-      console.log "Left Stick: ", position
-
-    my.controller.on 'right:move', (position) ->
-      console.log "Right Stick: ", position
+    my.controller.on "right:move", (pos) ->
+      console.log "right:", pos
 
 Cylon.start()

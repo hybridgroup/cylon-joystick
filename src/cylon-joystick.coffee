@@ -37,7 +37,7 @@ module.exports =
       when "xbox360"
         new Cylon.Drivers.Joystick.Xbox360(args...)
       when "dualshock3"
-        new Cylon.Drivers.Joystick.Dualshock3(args...)
+        new Cylon.Drivers.Joystick.DualShock3(args...)
 
   register: (robot) ->
     Logger.debug "Registering Joystick adaptor and drivers for #{robot.name}"
