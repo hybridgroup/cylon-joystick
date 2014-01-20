@@ -3,14 +3,14 @@ Cylon = require 'cylon'
 Cylon.robot
   name: "NewBot"
   connection: { name: 'joystick', adaptor: 'joystick' }
-  device: { name: 'controller', driver: 'joystick' }
+  device: { name: 'controller', driver: 'xbox360' }
 
   work: (my) ->
     buttons = [
-      "dup",
-      "ddown",
-      "dleft",
-      "dright",
+      "dpad:up",
+      "dpad:down",
+      "dpad:left",
+      "dpad:right",
 
       "xboxbutton",
 
@@ -29,11 +29,11 @@ Cylon.robot
       "y"
     ]
 
-    for button in buttons
-      my.controller.on "#{button}:press", (button) ->
+    buttons.forEach (button) ->
+      my.controller.on "#{button}:press", ->
         console.log button + " pressed"
 
-      my.controller.on "#{button}:release", (button) ->
+      my.controller.on "#{button}:release", ->
         console.log button + " released"
 
     my.controller.on 'lefttrigger', (position) ->

@@ -23,10 +23,10 @@ namespace "Cylon.Drivers.Joystick", ->
 
     start: (callback) ->
       buttons = [
-        "dup",
-        "ddown",
-        "dleft",
-        "dright",
+        "dpad:up",
+        "dpad:down",
+        "dpad:left",
+        "dpad:right",
 
         "xboxbutton",
 

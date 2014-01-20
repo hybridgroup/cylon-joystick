@@ -25,11 +25,6 @@ namespace "Cylon.Adaptors", ->
 
     connect: (callback) ->
       buttons = [
-        "dup",
-        "ddown",
-        "dleft",
-        "dright",
-
         "xboxbutton",
 
         "start",
@@ -50,6 +45,12 @@ namespace "Cylon.Adaptors", ->
       for button in buttons
         @defineAdaptorEvent eventName: "#{button}:press"
         @defineAdaptorEvent eventName: "#{button}:release"
+
+      for event in ["press", "release"]
+        for dir in ["up", "down", "left", "right"]
+            @defineAdaptorEvent
+              eventName: "d#{dir}:#{event}"
+              targetEventName: "dpad:#{dir}:#{event}"
 
       @defineAdaptorEvent eventName: 'lefttrigger'
       @defineAdaptorEvent eventName: 'righttrigger'

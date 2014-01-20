@@ -35,7 +35,7 @@
 
       Xbox360.prototype.start = function(callback) {
         var button, buttons, _i, _len;
-        buttons = ["dup", "ddown", "dleft", "dright", "xboxbutton", "start", "back", "leftstick", "rightstick", "leftshoulder", "rightshoulder", "a", "b", "x", "y"];
+        buttons = ["dpad:up", "dpad:down", "dpad:left", "dpad:right", "xboxbutton", "start", "back", "leftstick", "rightstick", "leftshoulder", "rightshoulder", "a", "b", "x", "y"];
         for (_i = 0, _len = buttons.length; _i < _len; _i++) {
           button = buttons[_i];
           this.defineDriverEvent({

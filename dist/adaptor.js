@@ -37,8 +37,8 @@
       };
 
       Joystick.prototype.connect = function(callback) {
-        var button, buttons, _i, _len;
-        buttons = ["dup", "ddown", "dleft", "dright", "xboxbutton", "start", "back", "leftstick", "rightstick", "leftshoulder", "rightshoulder", "a", "b", "x", "y"];
+        var button, buttons, dir, event, _i, _j, _k, _len, _len1, _len2, _ref, _ref1;
+        buttons = ["xboxbutton", "start", "back", "leftstick", "rightstick", "leftshoulder", "rightshoulder", "a", "b", "x", "y"];
         for (_i = 0, _len = buttons.length; _i < _len; _i++) {
           button = buttons[_i];
           this.defineAdaptorEvent({
@@ -47,6 +47,18 @@
           this.defineAdaptorEvent({
             eventName: "" + button + ":release"
           });
+        }
+        _ref = ["press", "release"];
+        for (_j = 0, _len1 = _ref.length; _j < _len1; _j++) {
+          event = _ref[_j];
+          _ref1 = ["up", "down", "left", "right"];
+          for (_k = 0, _len2 = _ref1.length; _k < _len2; _k++) {
+            dir = _ref1[_k];
+            this.defineAdaptorEvent({
+              eventName: "d" + dir + ":" + event,
+              targetEventName: "dpad:" + dir + ":" + event
+            });
+          }
         }
         this.defineAdaptorEvent({
           eventName: 'lefttrigger'
