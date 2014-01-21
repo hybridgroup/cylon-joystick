@@ -15,9 +15,14 @@ Want to use the Go programming language to power your robots? Check out our sist
 ## Getting Started
 Install the module with: `npm install cylon-joystick`
 
-## Note for OS X Users
+## Notes:
 
-You'll need to install OS X Drivers for the Xbox 360 Controller from http://tattiebogle.net/index.php/ProjectRoot/Xbox360Controller/OsxDriver if you want to use it.
+You'll need to install OS X Drivers for the Xbox 360 Controller from
+http://tattiebogle.net/index.php/ProjectRoot/Xbox360Controller/OsxDriver if
+you want to use it with your Mac.
+
+If you're using a PS3 controller and want to communicate with it over USB, plug
+it in and then press the PlayStation button. Otherwise, it won't emit any data.
 
 ## Examples
 

@@ -10,7 +10,7 @@
 
 namespace = require 'node-namespace'
 
-require './cylon-joystick'
+require '../cylon-joystick'
 
 namespace "Cylon.Drivers.Joystick", ->
   class @Xbox360 extends Cylon.Driver
@@ -23,18 +23,18 @@ namespace "Cylon.Drivers.Joystick", ->
 
     start: (callback) ->
       buttons = [
-        "dup",
-        "ddown",
-        "dleft",
-        "dright",
+        "dpad:up",
+        "dpad:down",
+        "dpad:left",
+        "dpad:right",
 
         "xboxbutton",
 
         "start",
         "back",
 
-        "leftstick",
-        "rightstick",
+        "left",
+        "right",
 
         "leftshoulder",
         "rightshoulder",
