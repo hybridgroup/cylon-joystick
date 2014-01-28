@@ -33,11 +33,6 @@
         return ["rumble", "setLed"];
       };
 
-      # Public: Starts the driver
-      #
-      # callback - params
-      #
-      # Returns null.
       Xbox360.prototype.start = function(callback) {
         var button, buttons, _i, _len;
         buttons = ["dpad:up", "dpad:down", "dpad:left", "dpad:right", "xboxbutton", "start", "back", "left", "right", "leftshoulder", "rightshoulder", "a", "b", "x", "y"];

@@ -29,11 +29,6 @@
         this.proxyMethods(this.commands(), this.connection, this);
       }
 
-      # Public: Starts the driver
-      #
-      # callback - params
-      #
-      # Returns null.
       DualShock3.prototype.start = function(callback) {
         var button, buttons, state, _i, _j, _len, _len1, _ref;
         buttons = ["r1", "l1", "r2", "l2", "start", "select", "x", "triangle", "circle", "square", "left", "right", "dpad:left", "dpad:right", "dpad:up", "dpad:down", "psbutton"];
