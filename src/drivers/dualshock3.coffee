@@ -18,6 +18,11 @@ namespace "Cylon.Drivers.Joystick", ->
       super
       @proxyMethods @commands(), @connection, this
 
+    # Public: Starts the driver
+    #
+    # callback - params
+    #
+    # Returns null.
     start: (callback) ->
       buttons = [
         "r1",

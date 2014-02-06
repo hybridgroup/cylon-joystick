@@ -20,7 +20,12 @@ namespace "Cylon.Drivers.Joystick", ->
 
     commands: ->
       ["rumble", "setLed"]
-
+      
+    # Public: Starts the driver
+    #
+    # callback - params
+    #
+    # Returns null.
     start: (callback) ->
       buttons = [
         "dpad:up",
