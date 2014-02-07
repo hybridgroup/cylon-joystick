@@ -2,11 +2,11 @@
   'use strict';
   var driver;
 
-  driver = source("drivers/xbox360");
+  driver = source("drivers/dualshock3");
 
-  describe("Cylon.Drivers.Joystick.Xbox360", function() {
+  describe("Cylon.Drivers.Joystick.DualShock3", function() {
     var joystick;
-    joystick = new Cylon.Drivers.Joystick.Xbox360({
+    joystick = new Cylon.Drivers.Joystick.DualShock3({
       name: 'stick',
       device: {
         connection: 'connect'
