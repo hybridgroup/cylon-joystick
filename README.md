@@ -81,7 +81,7 @@ Thank you!
 
 ## Release History
 
-[![NPM](https://nodei.co/npm/cylon-joystick.png?compact=true)](https://nodei.co/npm/cylon-joystick/)
+Version 0.2.0 - Update for Cylon.js 0.10.0, add support for Dualshock 3
 
 Version 0.1.0 - Initial release
 
