@@ -24,21 +24,23 @@
       __extends(Xbox360, _super);
 
       function Xbox360(opts) {
+        var type;
         if (opts == null) {
           opts = {};
         }
+        type = opts.extraParams.type || "controller";
         if (opts.initialize == null) {
           opts.initialize = true;
         }
         this.joystick = null;
         Xbox360.__super__.constructor.apply(this, arguments);
         if (opts.initialize) {
-          this.connectToController();
+          this.connectToController(type);
         }
       }
 
-      Xbox360.prototype.connectToController = function() {
-        this.connector = this.joystick = new XboxController;
+      Xbox360.prototype.connectToController = function(type) {
+        this.connector = this.joystick = new XboxController(type);
         return this.proxyMethods(this.commands(), this.joystick, this);
       };
 

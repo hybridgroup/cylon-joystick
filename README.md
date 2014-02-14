@@ -59,6 +59,37 @@ Cylon.robot
 .start()
 ```
 
+## Third-Party Controllers
+
+For Xbox 360 third-party controllers, you may need to supply part of the name to
+the `connection` so that our driver can find your controller correctly. To find
+out the name of the controller, you can run [this script](https://gist.github.com/stewart/9011885).
+
+Example:
+
+```javascript
+var Cylon = require('cylon');
+
+Cylon.robot({
+  connection: {
+    name: 'joystick',
+    adaptor: 'joystick',
+    controller: 'xbox360',
+    type: 'afterglow' // <= lets cylon-joystick connect to your controller
+  },
+
+  device: { name: 'joystick', driver: 'xbox360' },
+
+  work: function(my) {
+    my.joystick.on("left:move", function(position) { 
+      console.log(position);
+    });
+  }
+}).start();
+```
+
+Third party controller support for PS3 is pending.
+
 ## Documentation
 
 We're busy adding documentation to our web site at http://cylonjs.com/ please check there as we continue to work on Cylon.js
