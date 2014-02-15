@@ -16,13 +16,14 @@ require '../cylon-joystick'
 namespace "Cylon.Adaptors.Joystick", ->
   class @Xbox360 extends Cylon.Adaptor
     constructor: (opts = {}) ->
+      type = opts.extraParams.type || "controller"
       opts.initialize ?= true
       @joystick = null
       super
-      do @connectToController if opts.initialize
+      @connectToController(type) if opts.initialize
 
-    connectToController: ->
-      @connector = @joystick = new XboxController
+    connectToController: (type) ->
+      @connector = @joystick = new XboxController(type)
       @proxyMethods @commands(), @joystick, this
 
     commands: ->
