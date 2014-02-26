@@ -28,6 +28,7 @@
         if (opts == null) {
           opts = {};
         }
+        opts.extraParams || (opts.extraParams = {});
         type = opts.extraParams.type || "controller";
         if (opts.initialize == null) {
           opts.initialize = true;

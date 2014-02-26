@@ -16,6 +16,7 @@ require '../cylon-joystick'
 namespace "Cylon.Adaptors.Joystick", ->
   class @Xbox360 extends Cylon.Adaptor
     constructor: (opts = {}) ->
+      opts.extraParams ||= {}
       type = opts.extraParams.type || "controller"
       opts.initialize ?= true
       @joystick = null
