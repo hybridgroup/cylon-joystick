@@ -65,4 +65,6 @@
     })(Cylon.Driver);
   });
 
+  module.exports = Cylon.Drivers.Joystick.Xbox360;
+
 }).call(this);

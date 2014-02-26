@@ -90,4 +90,6 @@
     })(Cylon.Adaptor);
   });
 
+  module.exports = Cylon.Adaptors.Joystick.DualShock3;
+
 }).call(this);

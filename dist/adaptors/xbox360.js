@@ -107,4 +107,6 @@
     })(Cylon.Adaptor);
   });
 
+  module.exports = Cylon.Adaptors.Joystick.Xbox360;
+
 }).call(this);

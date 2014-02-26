@@ -1,18 +1,12 @@
-(function() {
-  'use strict';
-  var driver;
+"use strict";
 
-  driver = source("drivers/xbox360");
+var Xbox360 = source("drivers/xbox360");
 
-  describe("Cylon.Drivers.Joystick.Xbox360", function() {
-    var joystick;
-    joystick = new Cylon.Drivers.Joystick.Xbox360({
-      name: 'stick',
-      device: {
-        connection: 'connect'
-      }
-    });
-    return it("needs tests");
+describe("Cylon.Drivers.Joystick.Xbox360", function() {
+  var joystick = new Xbox360({
+    name: 'stick',
+    device: { connection: 'connect' }
   });
 
-}).call(this);
+  it("needs tests");
+});

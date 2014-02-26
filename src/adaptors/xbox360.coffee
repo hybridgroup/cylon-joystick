@@ -72,3 +72,5 @@ namespace "Cylon.Adaptors.Joystick", ->
       @joystick.setLed 0x00
       @joystick.rumble(0, 0)
       super
+
+module.exports = Cylon.Adaptors.Joystick.Xbox360

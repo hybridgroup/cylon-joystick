@@ -60,3 +60,5 @@ namespace "Cylon.Drivers.Joystick", ->
       @defineDriverEvent eventName: 'right:move'
 
       super
+
+module.exports = Cylon.Drivers.Joystick.Xbox360

@@ -56,4 +56,6 @@
     })(Cylon.Driver);
   });
 
+  module.exports = Cylon.Drivers.Joystick.DualShock3;
+
 }).call(this);

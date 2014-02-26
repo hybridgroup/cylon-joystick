@@ -1,15 +1,9 @@
-(function() {
-  'use strict';
-  var adaptor;
+'use strict';
 
-  adaptor = source("adaptors/dualshock3");
+var DualShock3 = source("adaptors/dualshock3");
 
-  describe("Cylon.Adaptors.Joystick.DualShock3", function() {
-    var joystick;
-    joystick = new Cylon.Adaptors.Joystick.DualShock3({
-      initialize: false
-    });
-    return it("needs tests");
-  });
+describe("Cylon.Adaptors.Joystick.DualShock3", function() {
+  var adaptor = new DualShock3({ initialize: false });
 
-}).call(this);
+  it("needs tests");
+});

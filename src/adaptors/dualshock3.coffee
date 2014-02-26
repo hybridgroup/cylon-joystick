@@ -70,3 +70,5 @@ namespace "Cylon.Adaptors.Joystick", ->
       do @joystick.connect
 
       super
+
+module.exports = Cylon.Adaptors.Joystick.DualShock3

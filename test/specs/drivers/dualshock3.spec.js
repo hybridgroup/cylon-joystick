@@ -1,18 +1,12 @@
-(function() {
-  'use strict';
-  var driver;
+'use strict';
 
-  driver = source("drivers/dualshock3");
+var DualShock3 = source("drivers/dualshock3");
 
-  describe("Cylon.Drivers.Joystick.DualShock3", function() {
-    var joystick;
-    joystick = new Cylon.Drivers.Joystick.DualShock3({
-      name: 'stick',
-      device: {
-        connection: 'connect'
-      }
-    });
-    return it("needs tests");
+describe("Cylon.Drivers.Joystick.DualShock3", function() {
+  var joystick = new DualShock3({
+    name: 'stick',
+    device: { connection: 'connect' }
   });
 
-}).call(this);
+  it("needs tests");
+});

@@ -1,15 +1,9 @@
-(function() {
-  'use strict';
-  var adaptor;
+"use strict";
 
-  adaptor = source("adaptors/xbox360");
+var Xbox360 = source("adaptors/xbox360");
 
-  describe("Cylon.Adaptors.Joystick.Xbox360", function() {
-    var joystick;
-    joystick = new Cylon.Adaptors.Joystick.Xbox360({
-      initialize: false
-    });
-    return it("needs tests");
-  });
+describe("Cylon.Adaptors.Joystick.Xbox360", function() {
+  var adaptor = new Xbox360({ initialize: false });
 
-}).call(this);
+  it("needs tests");
+});
