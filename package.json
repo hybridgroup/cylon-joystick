@@ -1,7 +1,7 @@
 {
   "name": "cylon-joystick",
   "version": "0.2.0",
-  "main": "dist/cylon-joystick.js",
+  "main": "lib/cylon-joystick.js",
   "description": "Cylon module for any HID joystick",
   "homepage": "http://cylonjs.com",
   "bugs": "https://github.com/hybridgroup/cylon-joystick/issues",
