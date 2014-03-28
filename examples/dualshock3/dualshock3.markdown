@@ -11,47 +11,48 @@ so we can connect to the controller.
 
 First, let's load up Cylon:
 
-    Cylon = require 'cylon'
+    var Cylon = require('cylon');
 
 With that done, we can start defining our new robot.
 
-    Cylon.robot
+    Cylon.robot({
 
 We'll be setting up a connection to our DualShock controller, and also setting
 the controller up as a device the robot can talk to:
 
-      connection:
-        name: 'joystick'
-        adaptor: 'joystick'
-        controller: 'dualshock3'
-
-      device:
-        name: 'controller'
-        driver: 'dualshock3'
+      connection: { name: 'joystick', adaptor: 'joystick', controller: 'dualshock3' },
+      device: { name: 'controller', driver: 'dualshock3' },
 
 With our connection to the controller established, we'll tell it what to do:
 
-      work: (my) ->
+      work: function(my) {
 
 Let's ask our robot to tell us when the face buttons on the controller (Square,
 Circle, X, Triangle) are pressed and released:
 
-        ["square", "circle", "x", "triangle"].forEach (button) ->
-          my.controller.on "#{button}:press", ->
-            console.log "Button #{button} pressed."
+        ["square", "circle", "x", "triangle"].forEach(function(button) {
+          my.controller.on(button + ":press", function() {
+            console.log("Button " + button + " pressed.");
+          });
 
-          my.controller.on "#{button}:release", ->
-            console.log "Button #{button} released."
+          my.controller.on(button + ":release", function() {
+            console.log("Button " + button + " released.");
+          });
+        });
 
 Next up, when someone moves the left and right analog sticks, lets' print their
 current positions.
 
-        my.controller.on "left:move", (pos) ->
-          console.log "Left Stick:", pos
+        my.controller.on("left:move", function(pos) {
+          console.log("Left Stick:", pos);
+        });
 
-        my.controller.on "right:move", (pos) ->
-          console.log "Right Stick:", pos
+        my.controller.on("right:move", function(pos) {
+          console.log("Right Stick:", pos);
+        });
+      }
+    });
 
 And with our work defined, we can tell Cylon to start up our Robot:
 
-    Cylon.start()
+    Cylon.start();
