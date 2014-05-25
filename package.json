@@ -24,7 +24,6 @@
   },
 
   "dependencies": {
-    "node-namespace":       "~1.0.0",
     "cylon":                ">= 0.12.0",
     "xbox-controller":      ">= 0.4.0",
     "dualshock-controller": ">= 0.4.0"
