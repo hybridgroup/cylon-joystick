@@ -23,8 +23,6 @@ If you're using a PS3 controller and want to communicate with it over USB, plug 
 
 ## Examples
 
-### JavaScript
-
 ```javascript
 var Cylon = require('cylon');
 
@@ -33,30 +31,11 @@ Cylon.robot({
   device: {name: 'joystick', driver: 'xbox360'},
 
   work: function(my) {
-    my.joystick.on("left:move", function(position) { 
+    my.joystick.on("left:move", function(position) {
       console.log(position);
     });
   }
 }).start();
-```
-
-### CoffeeScript
-
-```
-Cylon = require 'cylon'
-
-Cylon.robot
-  connection:
-    name: 'joystick', adaptor: 'joystick', controller: 'xbox360'
-
-  device:
-    name: 'joystick', driver: 'xbox360'
-
-  work: (my) ->
-    my.joystick.on "left:move", (position) ->
-      console.log position
-
-.start()
 ```
 
 ## Third-Party Controllers
@@ -81,7 +60,7 @@ Cylon.robot({
   device: { name: 'joystick', driver: 'xbox360' },
 
   work: function(my) {
-    my.joystick.on("left:move", function(position) { 
+    my.joystick.on("left:move", function(position) {
       console.log(position);
     });
   }
