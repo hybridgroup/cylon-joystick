@@ -28,8 +28,7 @@
   },
 
   "dependencies": {
-    "cylon":                "~0.15.0",
-    "xbox-controller":      ">= 0.4.0",
-    "dualshock-controller": ">= 0.4.0"
+    "cylon": "~0.15.0",
+    "sdl": "git://github.com/hybridgroup/node-sdl.git#dev"
   }
 }
