@@ -9,6 +9,8 @@ before_install:
 
 install:
   - sudo apt-get install --force-yes libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev libsdl2
+  - npm install -g node-gyp
+  - node-gyp install
   - npm install
 
 script:
