@@ -31,13 +31,13 @@ describe("Adaptor", function() {
 
       stub(SDL, 'init');
       stub(SDL, 'numJoysticks');
-      stub(SDL, 'GameController');
+      stub(SDL, 'Joystick');
     });
 
     afterEach(function() {
       SDL.init.restore();
       SDL.numJoysticks.restore();
-      SDL.GameController.restore();
+      SDL.Joystick.restore();
     });
 
     it("initializes SDL", function() {
