@@ -24,17 +24,20 @@ describe("Adaptor", function() {
   });
 
   describe("#connect", function() {
-    var callback;
+    var callback, clock;
 
     beforeEach(function() {
       callback = spy();
+      clock = sinon.useFakeTimers();
 
+      stub(Cylon.Utils, 'constantly');
       stub(SDL, 'init');
       stub(SDL, 'numJoysticks');
       stub(SDL, 'Joystick');
     });
 
     afterEach(function() {
+      Cylon.Utils.constantly.restore();
       SDL.init.restore();
       SDL.numJoysticks.restore();
       SDL.Joystick.restore();
@@ -53,6 +56,65 @@ describe("Adaptor", function() {
       it("throws an error", function() {
         var fn = function() { adaptor.connect(callback); };
         expect(fn).to.throw(Error, "No SDL Joystick Available.");
+      });
+    });
+
+    context("if a joystick is connected", function() {
+      beforeEach(function() {
+        SDL.numJoysticks.returns(1);
+      });
+
+      it("creates a new SDL.Joystick", function() {
+        adaptor.connect(callback);
+        expect(adaptor.connector).to.be.an.instanceOf(SDL.Joystick);
+        expect(adaptor.joystick).to.be.an.instanceOf(SDL.Joystick);
+      });
+
+      it("starts listening for joystick events", function() {
+        adaptor.connect(callback);
+        expect(Cylon.Utils.constantly).to.be.calledWith(adaptor.listenForEvents);
+      });
+    })
+  });
+
+  describe("#listenForEvents", function() {
+    beforeEach(function() {
+      stub(SDL, 'pollEvent');
+      stub(adaptor, 'emit');
+    });
+
+    afterEach(function() {
+      SDL.pollEvent.restore();
+      adaptor.emit.restore();
+    });
+
+    it("polls SDL for events", function() {
+      adaptor.listenForEvents();
+      expect(SDL.pollEvent).to.be.called;
+    });
+
+    context("if SDL has no events", function() {
+      beforeEach(function() {
+        SDL.pollEvent.returns(null);
+      });
+
+      it("doesn't emit anything", function() {
+        adaptor.listenForEvents();
+        expect(adaptor.emit).to.not.be.called;
+      });
+    });
+
+    context("if SDL has a joystick event", function() {
+      var event;
+
+      beforeEach(function() {
+        event = { type: 'JOYAXISMOTION', which: 0, axis: 3, value: 642 };
+        SDL.pollEvent.returns(event);
+      });
+
+      it("emits an event", function() {
+        adaptor.listenForEvents();
+        expect(adaptor.emit).to.be.calledWith('event', event);
       });
     });
   });
