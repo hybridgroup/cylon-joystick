@@ -1,13 +1,3 @@
 # Commands
 
-## rumble()
-
-coming soon
-
-##### Returns 
-
-## setLed()
-
-coming soon
-
-##### Returns 
+No commands
