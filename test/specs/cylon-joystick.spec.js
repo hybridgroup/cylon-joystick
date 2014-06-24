@@ -2,10 +2,12 @@
 
 var joystick = source("cylon-joystick");
 
-var Adaptor = source('adaptor');
+var Adaptor = source('adaptor'),
+    Driver = source('driver');
 
-var Drivers = {
-  DualShock3: source('drivers/dualshock_3')
+var Config = {
+  DualShock3: source('config/dualshock_3'),
+  Custom: require('../support/custom')
 }
 
 describe("Cylon.Joystick", function() {
@@ -23,11 +25,15 @@ describe("Cylon.Joystick", function() {
 
     it("registers the 'joystick' adaptor", function() {
       expect(registerAdaptor).to.be.calledWith("cylon-joystick", "joystick");
-    })
+    });
 
     it("registers the 'dualshock-3' driver", function() {
       expect(registerDriver).to.be.calledWith("cylon-joystick", "dualshock-3");
-    })
+    });
+
+    it("registers the 'custom-joystick' driver", function() {
+      expect(registerDriver).to.be.calledWith("cylon-joystick", "custom-joystick");
+    });
   });
 
   describe("#adaptor", function() {
@@ -37,16 +43,32 @@ describe("Cylon.Joystick", function() {
   });
 
   describe("#driver", function() {
-    var opts = { name: 'custom', device: {} };
+    var opts = { name: 'custom', device: {}, extraParams: { config: 'test.json'} };
 
     context("when opts.name is 'dualshock-3'", function() {
       beforeEach(function() {
         opts.name = "dualshock-3";
       });
 
-      it("returns a new instance of the DualShock3 Driver", function() {
-        expect(joystick.driver(opts)).to.be.an.instanceOf(Drivers.DualShock3);
+      it("returns a new instance of Driver, with DualShock 3 config", function() {
+        var driver = joystick.driver(opts)
+        expect(driver).to.be.an.instanceOf(Driver);
+        expect(driver.config).to.be.eql(Config.DualShock3);
       });
-    })
+    });
+
+    context("when opts.name is 'custom-joystick'", function() {
+      beforeEach(function() {
+        opts.name = "custom-joystick";
+        opts.extraParams.config = __dirname + "/../support/custom.json"
+      });
+
+      it("returns a new instance of Driver, with custom config", function() {
+        var driver = joystick.driver(opts)
+        expect(driver).to.be.an.instanceOf(Driver);
+        expect(driver.config).to.be.eql(Config.Custom);
+      });
+    });
   });
+
 });

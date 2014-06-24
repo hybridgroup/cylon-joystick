@@ -72,7 +72,7 @@ describe("Adaptor", function() {
 
       it("starts listening for joystick events", function() {
         adaptor.connect(callback);
-        expect(Cylon.Utils.constantly).to.be.calledWith(adaptor.listenForEvents);
+        expect(Cylon.Utils.constantly).to.be.called;
       });
     })
   });
@@ -80,12 +80,11 @@ describe("Adaptor", function() {
   describe("#listenForEvents", function() {
     beforeEach(function() {
       stub(SDL, 'pollEvent');
-      stub(adaptor, 'emit');
+      adaptor.connection = { emit: spy() };
     });
 
     afterEach(function() {
       SDL.pollEvent.restore();
-      adaptor.emit.restore();
     });
 
     it("polls SDL for events", function() {
@@ -100,7 +99,7 @@ describe("Adaptor", function() {
 
       it("doesn't emit anything", function() {
         adaptor.listenForEvents();
-        expect(adaptor.emit).to.not.be.called;
+        expect(adaptor.connection.emit).to.not.be.called;
       });
     });
 
@@ -114,7 +113,7 @@ describe("Adaptor", function() {
 
       it("emits an event", function() {
         adaptor.listenForEvents();
-        expect(adaptor.emit).to.be.calledWith('event', event);
+        expect(adaptor.connection.emit).to.be.calledWith('event', event);
       });
     });
   });
