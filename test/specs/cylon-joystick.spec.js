@@ -7,6 +7,7 @@ var Adaptor = source('adaptor'),
 
 var Config = {
   DualShock3: source('config/dualshock_3'),
+  Xbox360: source('config/xbox_360'),
   Custom: require('../support/custom')
 }
 
@@ -29,6 +30,10 @@ describe("Cylon.Joystick", function() {
 
     it("registers the 'dualshock-3' driver", function() {
       expect(registerDriver).to.be.calledWith("cylon-joystick", "dualshock-3");
+    });
+
+    it("registers the 'xbox-360' driver", function() {
+      expect(registerDriver).to.be.calledWith("cylon-joystick", "xbox-360");
     });
 
     it("registers the 'custom-joystick' driver", function() {
@@ -54,6 +59,18 @@ describe("Cylon.Joystick", function() {
         var driver = joystick.driver(opts)
         expect(driver).to.be.an.instanceOf(Driver);
         expect(driver.config).to.be.eql(Config.DualShock3);
+      });
+    });
+
+    context("when opts.name is 'xbox-360'", function() {
+      beforeEach(function() {
+        opts.name = "xbox-360";
+      });
+
+      it("returns a new instance of Driver, with Xbox 360 config", function() {
+        var driver = joystick.driver(opts)
+        expect(driver).to.be.an.instanceOf(Driver);
+        expect(driver.config).to.be.eql(Config.Xbox360);
       });
     });
 
