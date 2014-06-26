@@ -29,6 +29,6 @@
 
   "dependencies": {
     "cylon": "~0.15.0",
-    "sdl": "git://github.com/hybridgroup/node-sdl.git#dev"
+    "hybridgroup-sdl": "~0.2.0"
   }
 }
