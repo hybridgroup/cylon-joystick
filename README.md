@@ -2,9 +2,11 @@
 
 Cylon.js (http://cylonjs.com) is a JavaScript framework for robotics and physical computing using Node.js
 
-This repository contains the Cylon adaptor for the Xbox 360 controller, and for the Dualshock 3 (PS3) controller. It depends heavily on the https://github.com/andrew/node-xbox-controller module, thanks [@andrew](https://github.com/andrew), and on the https://github.com/rdepena/node-dualshock-controller module, thanks [@rdepena](https://github.com/rdepena)!
+This repository contains the Joystick adaptor, for use with any
+[SDL][]-compatible game controller. Bindings are provided for the Xbox 360 and
+DualShock 3 controllers by default.
 
-The goal is to also support any other joysticks and game controllers that are HID devices.
+[SDL]: http://www.libsdl.org/
 
 Want to use Ruby on robots? Check out our sister project Artoo (http://artoo.io)
 
@@ -13,13 +15,13 @@ Want to use the Go programming language to power your robots? Check out our sist
 [![Build Status](https://secure.travis-ci.org/hybridgroup/cylon-joystick.png?branch=master)](http://travis-ci.org/hybridgroup/cylon-joystick)
 
 ## Getting Started
+
 Install the module with: `npm install cylon-joystick`
 
 ## Notes:
 
-You'll need to install OS X Drivers for the Xbox 360 Controller from http://tattiebogle.net/index.php/ProjectRoot/Xbox360Controller/OsxDriver if you want to use it with your Mac.
-
-If you're using a PS3 controller and want to communicate with it over USB, plug it in and then press the PlayStation button. Otherwise, it won't emit any data.
+If you're using a PS3 controller and want to communicate with it over USB, plug
+it in and then press the PlayStation button to make sure it's connected.
 
 ## Examples
 
@@ -27,47 +29,40 @@ If you're using a PS3 controller and want to communicate with it over USB, plug 
 var Cylon = require('cylon');
 
 Cylon.robot({
-  connection: { name: 'joystick', adaptor: 'joystick', controller: 'xbox360' },
-  device: {name: 'joystick', driver: 'xbox360'},
+  connection: { name: 'joystick', adaptor: 'joystick' },
+  device: { name: 'controller', driver: 'dualshock-3' },
 
   work: function(my) {
-    my.joystick.on("left:move", function(position) {
-      console.log(position);
+    ["square", "circle", "x", "triangle"].forEach(function(button) {
+      my.controller.on(button + ":press", function() {
+        console.log("Button " + button + " pressed.");
+      });
+
+      my.controller.on(button + ":release", function() {
+        console.log("Button " + button + " released.");
+      });
+    });
+
+    my.controller.on("left_x:move", function(pos) {
+      console.log("Left Stick - X:", pos);
+    });
+
+    my.controller.on("right_x:move", function(pos) {
+      console.log("Right Stick - X:", pos);
+    });
+
+    my.controller.on("left_y:move", function(pos) {
+      console.log("Left Stick - Y:", pos);
+    });
+
+    my.controller.on("right_y:move", function(pos) {
+      console.log("Right Stick - Y:", pos);
     });
   }
-}).start();
+});
+
+Cylon.start();
 ```
-
-## Third-Party Controllers
-
-For Xbox 360 third-party controllers, you may need to supply part of the name to
-the `connection` so that our driver can find your controller correctly. To find
-out the name of the controller, you can run [this script](https://gist.github.com/stewart/9011885).
-
-Example:
-
-```javascript
-var Cylon = require('cylon');
-
-Cylon.robot({
-  connection: {
-    name: 'joystick',
-    adaptor: 'joystick',
-    controller: 'xbox360',
-    type: 'afterglow' // <= lets cylon-joystick connect to your controller
-  },
-
-  device: { name: 'joystick', driver: 'xbox360' },
-
-  work: function(my) {
-    my.joystick.on("left:move", function(position) {
-      console.log(position);
-    });
-  }
-}).start();
-```
-
-Third party controller support for PS3 is pending.
 
 ## Documentation
 
