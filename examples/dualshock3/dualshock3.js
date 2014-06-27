@@ -1,8 +1,8 @@
 var Cylon = require('cylon');
 
 Cylon.robot({
-  connection: { name: 'joystick', adaptor: 'joystick', controller: 'dualshock3' },
-  device: { name: 'controller', driver: 'dualshock3' },
+  connection: { name: 'joystick', adaptor: 'joystick' },
+  device: { name: 'controller', driver: 'dualshock-3' },
 
   work: function(my) {
     ["square", "circle", "x", "triangle"].forEach(function(button) {
@@ -15,12 +15,20 @@ Cylon.robot({
       });
     });
 
-    my.controller.on("left:move", function(pos) {
-      console.log("Left Stick:", pos);
+    my.controller.on("left_x:move", function(pos) {
+      console.log("Left Stick - X:", pos);
     });
 
-    my.controller.on("right:move", function(pos) {
-      console.log("Right Stick:", pos);
+    my.controller.on("right_x:move", function(pos) {
+      console.log("Right Stick - X:", pos);
+    });
+
+    my.controller.on("left_y:move", function(pos) {
+      console.log("Left Stick - Y:", pos);
+    });
+
+    my.controller.on("right_y:move", function(pos) {
+      console.log("Right Stick - Y:", pos);
     });
   }
 });

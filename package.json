@@ -28,8 +28,7 @@
   },
 
   "dependencies": {
-    "cylon":                "~0.15.0",
-    "xbox-controller":      ">= 0.4.0",
-    "dualshock-controller": ">= 0.4.0"
+    "cylon": "~0.15.0",
+    "hybridgroup-sdl": "~0.2.0"
   }
 }
