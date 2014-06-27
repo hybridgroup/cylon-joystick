@@ -1,7 +1,7 @@
 'use strict';
 
 var Cylon = require('cylon'),
-    SDL = require('sdl');
+    SDL = require('hybridgroup-sdl');
 
 var Adaptor = source('adaptor');
 
