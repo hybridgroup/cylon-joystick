@@ -1,6 +1,6 @@
 {
   "name": "cylon-joystick",
-  "version": "0.6.1",
+  "version": "0.7.0",
   "main": "lib/cylon-joystick.js",
   "description": "Cylon module for any HID joystick",
   "homepage": "http://cylonjs.com",
@@ -24,11 +24,11 @@
   },
 
   "peerDependencies": {
-    "cylon": ">= 0.15.0 < 1"
+    "cylon": ">= 0.16.0 < 1"
   },
 
   "dependencies": {
-    "cylon": "~0.15.0",
+    "cylon": "~0.16.0",
     "hybridgroup-sdl": "~0.2.0"
   }
 }
