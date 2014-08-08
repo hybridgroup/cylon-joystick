@@ -16,6 +16,22 @@ Want to use the Go programming language to power your robots? Check out our sist
 
 ## Getting Started
 
+To get started with cylon-joystick, you'll need to have the SDL libraries
+installed.
+
+### Linux (apt-get)
+
+    $ sudo add-apt-repository -y ppa:zoogie/sdl2-snapshots
+    $ sudo apt-get update
+    $ sudo apt-get install libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev libsdl2
+
+### OS X
+
+    $ brew install sdl2 sdl2_image sdl2_ttf
+
+If you're running a different setup, please consult your package manager's
+documentation.
+
 Install the module with: `npm install cylon-joystick`
 
 ## Notes:
