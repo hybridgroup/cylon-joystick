@@ -29,7 +29,8 @@ installed.
 
     $ brew install sdl2 sdl2_image sdl2_ttf
 
-Mac OS X does not provide native support for XBox 360 controllers. A third-party driver is available [here](http://tattiebogle.net/index.php/ProjectRoot/Xbox360Controller/OsxDriver).
+Mac OS X does not provide native support for Xbox 360 controllers.
+A third-party driver is available [here](http://tattiebogle.net/index.php/ProjectRoot/Xbox360Controller/OsxDriver).
 
 If you're running a different setup, please consult your package manager's
 documentation.
