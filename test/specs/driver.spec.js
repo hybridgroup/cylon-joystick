@@ -29,21 +29,18 @@ describe("Driver", function() {
     beforeEach(function() {
       callback = spy();
 
-      driver.adaptor = { on: spy() };
-
-      stub(gamepad, 'numDevices').returns(1)
-      stub(gamepad, 'deviceAtIndex').returns({
-        deviceID: 0,
-        vendorID: 1356,
-        productID: 616
-      });
+      driver.adaptor = {
+        on: spy(),
+        getDevices: function() {
+          return [{
+            deviceID: 0,
+            vendorID: 1356,
+            productID: 616
+          }]
+        }
+      };
 
       driver.start(callback);
-    });
-
-    afterEach(function() {
-      gamepad.numDevices.restore();
-      gamepad.deviceAtIndex.restore();
     });
 
     it("assigns controllerId to the matching controller", function() {

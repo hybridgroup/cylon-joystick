@@ -86,4 +86,20 @@ describe("Adaptor", function() {
       });
     });
   });
+
+  describe("#getDevices", function() {
+    beforeEach(function() {
+      stub(gamepad, 'numDevices').returns(1);
+      stub(gamepad, 'deviceAtIndex').returns({ id: 0 });
+    });
+
+    afterEach(function() {
+      gamepad.numDevices.restore();
+      gamepad.deviceAtIndex.restore();
+    });
+
+    it("returns all known devices", function() {
+      expect(adaptor.getDevices()).to.be.eql([{ id: 0 }]);
+    });
+  });
 });
