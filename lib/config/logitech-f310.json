@@ -1,0 +1,35 @@
+{
+  "description": "Generic X-Box pad",
+
+  "vendorID": 1133,
+  "productID": 49693,
+
+  "axis": [
+    { "name": "left_x", "id": 0 },
+    { "name": "left_y", "id": 1 },
+    { "name": "right_x", "id": 3 },
+    { "name": "right_y", "id": 4 },
+    { "name": "lt", "id": 2 },
+    { "name": "rt", "id": 5 },
+    { "name": "d-pad_x", "id": 6 },
+    { "name": "d-pad_y", "id": 7 }
+  ],
+
+  "buttons": [
+    { "name": "y", "id": 3 },
+    { "name": "x", "id": 2 },
+    { "name": "b", "id": 1 },
+    { "name": "a", "id": 0 },
+
+    { "name": "left_stick", "id": 9 },
+    { "name": "right_stick", "id": 10 },
+
+    { "name": "lb", "id": 4 },
+    { "name": "rb", "id": 5 },
+
+    { "name": "select", "id": 6 },
+    { "name": "start", "id": 7 },
+
+    { "name": "home", "id": 8 }
+  ]
+}
