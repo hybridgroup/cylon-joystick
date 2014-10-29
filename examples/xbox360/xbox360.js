@@ -6,6 +6,8 @@ Cylon.robot({
 
   work: function(my) {
     ["a", "b", "x", "y"].forEach(function(button) {
+      console.log('Registered listener:', button);
+
       my.controller.on(button + ":press", function() {
         console.log("Button " + button + " pressed.");
       });
