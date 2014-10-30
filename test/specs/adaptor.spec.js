@@ -81,7 +81,6 @@ describe("Adaptor", function() {
         it("proxies events for '" + event + "'", function() {
           gamepad.emit(event, 'hello');
           expect(adaptor.emit).to.be.calledWith(event, 'hello');
-          expect(adaptor.connection.emit).to.be.calledWith(event, 'hello');
         });
       });
     });
