@@ -48,19 +48,19 @@ build_script:
   - cmd: npm install --build-from-source
   #- cmd: npm test
   #- cmd: node lib/opencv.js
-  - cmd: ECHO "PUBLISH binary package:"
-  - cmd: IF %PUBLISH_BINARY%==true (node-pre-gyp package publish 2>&1)
-  - cmd: node-pre-gyp clean
-  - cmd: node-gyp clean
-  - cmd: rmdir /q /s node_modules
+  #- cmd: ECHO "PUBLISH binary package:"
+  #- cmd: IF %PUBLISH_BINARY%==true (node-pre-gyp package publish 2>&1)
+  #- cmd: node-pre-gyp clean
+  #- cmd: node-gyp clean
+  #- cmd: rmdir /q /s node_modules
 
 on_success:
   # test installing from binary package works
-  - cmd: ECHO "ON SUCCESS:"
-  - cmd: ECHO "Try installing from binary:"
-  - cmd: IF %PUBLISH_BINARY%==true npm install --fallback-to-build=false
+  #- cmd: ECHO "ON SUCCESS:"
+  #- cmd: ECHO "Try installing from binary:"
+  #- cmd: IF %PUBLISH_BINARY%==true npm install --fallback-to-build=false
   # Print Available Binaries
-  - cmd: node-pre-gyp info
+  #- cmd: node-pre-gyp info
 
 test: OFF
 
