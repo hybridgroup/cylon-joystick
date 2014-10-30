@@ -45,7 +45,7 @@ install:
 # to run your custom scripts instead of automatic MSBuild
 build_script:
   - cmd: ECHO "BUILDING binary package:"
-  - cmd: npm install --build-from-source
+  - cmd: npm install --msvs_version=2013 --build-from-source
   #- cmd: npm test
   #- cmd: node lib/opencv.js
   #- cmd: ECHO "PUBLISH binary package:"
