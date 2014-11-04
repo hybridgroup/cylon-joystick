@@ -8,7 +8,7 @@ var Driver = source('driver'),
 describe("Driver", function() {
   var driver = new Driver({
     device: { connection: {} },
-    extraParams: { config: './config/dualshock_3' }
+    config: './config/dualshock_3'
   });
 
   it("is a subclass of Cylon.Driver", function() {

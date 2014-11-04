@@ -12,32 +12,15 @@ var Config = {
 }
 
 describe("Cylon.Joystick", function() {
-  describe("#register", function() {
-    var robot, registerAdaptor, registerDriver;
-
-    beforeEach(function() {
-      robot = { registerAdaptor: spy(), registerDriver: spy() };
-
-      registerAdaptor = robot.registerAdaptor;
-      registerDriver = robot.registerDriver;
-
-      joystick.register(robot);
+  describe("#adaptors", function() {
+    it('is an array of supplied adaptors', function() {
+      expect(joystick.adaptors).to.be.eql(['joystick']);
     });
+  });
 
-    it("registers the 'joystick' adaptor", function() {
-      expect(registerAdaptor).to.be.calledWith("cylon-joystick", "joystick");
-    });
-
-    it("registers the 'dualshock-3' driver", function() {
-      expect(registerDriver).to.be.calledWith("cylon-joystick", "dualshock-3");
-    });
-
-    it("registers the 'xbox-360' driver", function() {
-      expect(registerDriver).to.be.calledWith("cylon-joystick", "xbox-360");
-    });
-
-    it("registers the 'custom-joystick' driver", function() {
-      expect(registerDriver).to.be.calledWith("cylon-joystick", "custom-joystick");
+  describe("#drivers", function() {
+    it('is an array of supplied drivers', function() {
+      expect(joystick.drivers).to.be.eql(['dualshock-3', 'xbox-360', 'joystick']);
     });
   });
 
@@ -48,11 +31,11 @@ describe("Cylon.Joystick", function() {
   });
 
   describe("#driver", function() {
-    var opts = { name: 'custom', device: { connection: {} }, extraParams: { config: 'test.json'} };
+    var opts = { name: 'custom', device: { connection: {} }, config: 'test.json' };
 
-    context("when opts.name is 'dualshock-3'", function() {
+    context("when opts.driver is 'dualshock-3'", function() {
       beforeEach(function() {
-        opts.name = "dualshock-3";
+        opts.driver = "dualshock-3";
       });
 
       it("returns a new instance of Driver, with DualShock 3 config", function() {
@@ -62,9 +45,9 @@ describe("Cylon.Joystick", function() {
       });
     });
 
-    context("when opts.name is 'xbox-360'", function() {
+    context("when opts.driver is 'xbox-360'", function() {
       beforeEach(function() {
-        opts.name = "xbox-360";
+        opts.driver = "xbox-360";
       });
 
       it("returns a new instance of Driver, with Xbox 360 config", function() {
@@ -74,10 +57,10 @@ describe("Cylon.Joystick", function() {
       });
     });
 
-    context("when opts.name is 'custom-joystick'", function() {
+    context("when opts.driver is 'joystick'", function() {
       beforeEach(function() {
-        opts.name = "custom-joystick";
-        opts.extraParams.config = __dirname + "/../support/custom.json"
+        opts.driver = "joystick";
+        opts.config = __dirname + "/../support/custom.json"
       });
 
       it("returns a new instance of Driver, with custom config", function() {
@@ -87,5 +70,4 @@ describe("Cylon.Joystick", function() {
       });
     });
   });
-
 });
