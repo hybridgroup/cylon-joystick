@@ -1,91 +1,38 @@
 {
-  "name": "Xbox 360 Controller",
+  "description": "Xbox 360 Controller",
+
+  "vendorID": 1118,
+  "productID": 654,
+
   "axis": [
-    {
-      "name": "left_x",
-      "id": 0
-    },
-    {
-      "name": "left_y",
-      "id": 1
-    },
-    {
-      "name": "right_x",
-      "id": 3
-    },
-    {
-      "name": "right_y",
-      "id": 4
-    },
-    {
-      "name": "lt",
-      "id": 2
-    },
-    {
-      "name": "rt",
-      "id": 5
-    }
+    { "name": "left_x", "id": 0 },
+    { "name": "left_y", "id": 1 },
+    { "name": "right_x", "id": 3 },
+    { "name": "right_y", "id": 4 },
+    { "name": "lt", "id": 2 },
+    { "name": "rt", "id": 5 }
   ],
+
   "buttons": [
-    {
-      "name": "x",
-      "id": 2
-    },
-    {
-      "name": "y",
-      "id": 3
-    },
-    {
-      "name": "b",
-      "id": 1
-    },
-    {
-      "name": "a",
-      "id": 0
-    },
-    {
-      "name": "up",
-      "id": 11
-    },
-    {
-      "name": "down",
-      "id": 12
-    },
-    {
-      "name": "left",
-      "id": 13
-    },
-    {
-      "name": "right",
-      "id": 14
-    },
-    {
-      "name": "left_stick",
-      "id": 6
-    },
-    {
-      "name": "right_stick",
-      "id": 7
-    },
-    {
-      "name": "lb",
-      "id": 4
-    },
-    {
-      "name": "rb",
-      "id": 5
-    },
-    {
-      "name": "start",
-      "id": 8
-    },
-    {
-      "name": "select",
-      "id": 9
-    },
-    {
-      "name": "home",
-      "id": 10
-    }
+    { "name": "x", "id": 2 },
+    { "name": "y", "id": 3 },
+    { "name": "b", "id": 1 },
+    { "name": "a", "id": 0 },
+
+    { "name": "up", "id": 11 },
+    { "name": "down", "id": 12 },
+    { "name": "left", "id": 13 },
+    { "name": "right", "id": 14 },
+
+    { "name": "left_stick", "id": 6 },
+    { "name": "right_stick", "id": 7 },
+
+    { "name": "lb", "id": 4 },
+    { "name": "rb", "id": 5 },
+
+    { "name": "start", "id": 8 },
+
+    { "name": "select", "id": 9 },
+    { "name": "home", "id": 10 }
   ]
 }
