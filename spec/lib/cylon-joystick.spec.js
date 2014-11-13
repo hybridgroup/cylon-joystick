@@ -31,7 +31,7 @@ describe("Cylon.Joystick", function() {
   });
 
   describe("#driver", function() {
-    var opts = { name: 'custom', device: { connection: {} }, config: 'test.json' };
+    var opts = { name: 'custom', adaptor: {}, config: 'test.json' };
 
     context("when opts.driver is 'dualshock-3'", function() {
       beforeEach(function() {

@@ -62,7 +62,6 @@ describe("Adaptor", function() {
         gamepad.numDevices.returns(1);
 
         adaptor.emit = spy();
-        adaptor.connection = { emit: spy() };
 
         adaptor.connect(callback);
       });

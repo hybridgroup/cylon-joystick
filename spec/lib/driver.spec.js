@@ -8,7 +8,7 @@ var Driver = source('driver'),
 
 describe("Driver", function() {
   var driver = new Driver({
-    device: { connection: {} },
+    adaptor: {},
     config: './config/dualshock_3'
   });
 
