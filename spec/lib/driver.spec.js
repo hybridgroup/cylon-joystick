@@ -8,7 +8,7 @@ var Driver = source('driver'),
 
 describe("Driver", function() {
   var driver = new Driver({
-    adaptor: {},
+    connection: {},
     config: './config/dualshock_3'
   });
 
@@ -29,7 +29,7 @@ describe("Driver", function() {
     beforeEach(function() {
       callback = spy();
 
-      driver.adaptor = {
+      driver.connection = {
         on: spy(),
         getDevices: function() {
           return [{
@@ -48,15 +48,15 @@ describe("Driver", function() {
     });
 
     it("listens for 'move' events", function() {
-      expect(driver.adaptor.on).to.be.calledWith('move');
+      expect(driver.connection.on).to.be.calledWith('move');
     });
 
     it("listens for 'up' events", function() {
-      expect(driver.adaptor.on).to.be.calledWith('up');
+      expect(driver.connection.on).to.be.calledWith('up');
     });
 
     it("listens for 'down' events", function() {
-      expect(driver.adaptor.on).to.be.calledWith('down');
+      expect(driver.connection.on).to.be.calledWith('down');
     });
   });
 
