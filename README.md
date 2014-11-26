@@ -1,12 +1,12 @@
-# Cylon.js For Joysticks and Game Controllers
+# Cylon.js for Joysticks and Controllers
 
-Cylon.js (http://cylonjs.com) is a JavaScript framework for robotics and physical computing using Node.js
+Cylon.js (http://cylonjs.com) is a JavaScript framework for robotics and physical computing using Node.js.
 
-This repository contains the Joystick adaptor, for use with any
-[SDL][]-compatible game controller. Bindings are provided for the Xbox 360 and
-DualShock 3 controllers by default.
+This repository contains the adaptor for communicating with Joysticks and Controllers.
+It can be used with any [SDL][http://www.libsdl.org/]-compatible controller.
+Default bindings are provided for the Xbox 360, DualShock 3, and Logitech F310 controllers.
 
-[SDL]: http://www.libsdl.org/
+cylon-gamepad is made possible by the [`gamepad` module](https://github.com/creationix/node-gamepad).
 
 Want to use Ruby on robots? Check out our sister project Artoo (http://artoo.io)
 
@@ -16,31 +16,14 @@ Want to use the Go programming language to power your robots? Check out our sist
 
 ## Getting Started
 
-To get started with cylon-joystick, you'll need to have the SDL libraries
-installed.
+**Note:** OS X does not provide native support for Xbox 360 controllers.
+As such, a [third-party driver is required](https://github.com/d235j/360Controller/releases).
 
-### Linux (apt-get)
+**Note:** If you're using a PS3 controller and want to communicate with it over USB, plug it in and then press the PlayStation button to make sure it's connected.
 
-    $ sudo add-apt-repository -y ppa:zoogie/sdl2-snapshots
-    $ sudo apt-get update
-    $ sudo apt-get install libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev libsdl2
+To get started with `cylon-joystick`, just install the NPM module:
 
-### OS X
-
-    $ brew install sdl2 sdl2_image sdl2_ttf
-
-Mac OS X does not provide native support for Xbox 360 controllers.
-A third-party driver is available [here](http://tattiebogle.net/index.php/ProjectRoot/Xbox360Controller/OsxDriver).
-
-If you're running a different setup, please consult your package manager's
-documentation.
-
-Install the module with: `npm install cylon-joystick`
-
-## Notes:
-
-If you're using a PS3 controller and want to communicate with it over USB, plug
-it in and then press the PlayStation button to make sure it's connected.
+    $ npm install cylon-joystick
 
 ## Examples
 
@@ -48,8 +31,13 @@ it in and then press the PlayStation button to make sure it's connected.
 var Cylon = require('cylon');
 
 Cylon.robot({
-  connection: { name: 'joystick', adaptor: 'joystick' },
-  device: { name: 'controller', driver: 'dualshock-3' },
+  connections: {
+    joystick: { adaptor: 'joystick' }
+  },
+
+  devices: {
+    controller: { driver: 'dualshock-3' }
+  },
 
   work: function(my) {
     ["square", "circle", "x", "triangle"].forEach(function(button) {
