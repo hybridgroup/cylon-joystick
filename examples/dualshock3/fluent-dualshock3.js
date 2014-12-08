@@ -1,16 +1,11 @@
 var Cylon = require('cylon');
 
-Cylon.robot({
-  connections: {
-    joystick: { adaptor: 'joystick' }
-  },
-
-  devices: {
-    controller: { driver: 'joystick', config: './config/logitech-f310' }
-  },
-
-  work: function(my) {
-    ["a", "b", "x", "y"].forEach(function(button) {
+Cylon
+  .robot()
+  .connection('joystick', { adaptor: 'joystick' })
+  .device('controller', { driver: 'dualshock-3' })
+  .on('ready', function(my) {
+    ["square", "circle", "x", "triangle"].forEach(function(button) {
       my.controller.on(button + ":press", function() {
         console.log("Button " + button + " pressed.");
       });
@@ -35,7 +30,6 @@ Cylon.robot({
     my.controller.on("right_y:move", function(pos) {
       console.log("Right Stick - Y:", pos);
     });
-  }
-});
+  });
 
 Cylon.start();

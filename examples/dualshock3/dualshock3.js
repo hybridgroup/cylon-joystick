@@ -1,8 +1,13 @@
 var Cylon = require('cylon');
 
 Cylon.robot({
-  connection: { name: 'joystick', adaptor: 'joystick' },
-  device: { name: 'controller', driver: 'dualshock-3' },
+  connections: {
+    joystick: { adaptor: 'joystick' }
+  },
+
+  devices: {
+    controller: { driver: 'dualshock-3' }
+  },
 
   work: function(my) {
     ["square", "circle", "x", "triangle"].forEach(function(button) {
@@ -31,6 +36,4 @@ Cylon.robot({
       console.log("Right Stick - Y:", pos);
     });
   }
-});
-
-Cylon.start();
+}).start();

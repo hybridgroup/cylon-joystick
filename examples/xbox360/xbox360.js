@@ -1,8 +1,13 @@
 var Cylon = require('cylon');
 
 Cylon.robot({
-  connection: { name: 'joystick', adaptor: 'joystick' },
-  device: { name: 'controller', driver: 'xbox-360' },
+  connections: {
+    joystick: { adaptor: 'joystick' }
+  },
+
+  devices: {
+    controller: { driver: 'xbox-360' }
+  },
 
   work: function(my) {
     ["a", "b", "x", "y"].forEach(function(button) {
