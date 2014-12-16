@@ -20,8 +20,13 @@ With that done, we can start defining our new robot.
 We'll be setting up a connection to our DualShock controller, and also setting
 the controller up as a device the robot can talk to:
 
-      connection: { name: 'joystick', adaptor: 'joystick' },
-      device: { name: 'controller', driver: 'dualshock-3' },
+      connections: {
+        joystick: { adaptor: 'joystick' }
+      },
+
+      devices: {
+        controller: { driver: 'dualshock-3' }
+      },
 
 With our connection to the controller established, we'll tell it what to do:
 
