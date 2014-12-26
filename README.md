@@ -14,18 +14,17 @@ Want to use the Go programming language to power your robots? Check out our sist
 
 [![Build Status](https://secure.travis-ci.org/hybridgroup/cylon-joystick.png?branch=master)](http://travis-ci.org/hybridgroup/cylon-joystick) [![Code Climate](https://codeclimate.com/github/hybridgroup/cylon-joystick/badges/gpa.svg)](https://codeclimate.com/github/hybridgroup/cylon-joystick) [![Test Coverage](https://codeclimate.com/github/hybridgroup/cylon-joystick/badges/coverage.svg)](https://codeclimate.com/github/hybridgroup/cylon-joystick)
 
-## Getting Started
-
-**Note:** OS X does not provide native support for Xbox 360 controllers.
-As such, a [third-party driver is required](https://github.com/d235j/360Controller/releases).
-
-**Note:** If you're using a PS3 controller and want to communicate with it over USB, plug it in and then press the PlayStation button to make sure it's connected.
-
-To get started with `cylon-joystick`, just install the NPM module:
+## How to Install
+Installing Cylon.js with Joystick support is pretty easy.
 
     $ npm install cylon-joystick
 
-## Examples
+### Note
+
+- OS X does not provide native support for Xbox 360 controllers. As such, a [third-party driver is required](https://github.com/d235j/360Controller/releases).
+- If you're using a PS3 controller and want to communicate with it over USB, plug it in and then press the PlayStation button to make sure it's connected.
+
+## How to Use
 
 ```javascript
 var Cylon = require('cylon');
@@ -70,6 +69,10 @@ Cylon.robot({
 
 Cylon.start();
 ```
+
+## How to Connect
+
+Plug your USB joystick or game controller into your USB port. If your device is supported by SDL, you are now ready.
 
 ## Documentation
 
