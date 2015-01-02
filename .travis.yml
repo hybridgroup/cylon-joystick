@@ -16,5 +16,5 @@ install:
   - npm install -g istanbul codeclimate-test-reporter
 
 script:
-  - make cover
+  - make ci
   - CODECLIMATE_REPO_TOKEN=bded29a8bea5cd83a6764ca7e863950c0f54002e0b4e5537c8df353e196dfb3a codeclimate < coverage/lcov.info
