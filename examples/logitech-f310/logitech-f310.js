@@ -1,12 +1,14 @@
-var Cylon = require('cylon');
+"use strict";
+
+var Cylon = require("cylon");
 
 Cylon.robot({
   connections: {
-    joystick: { adaptor: 'joystick' }
+    joystick: { adaptor: "joystick" }
   },
 
   devices: {
-    controller: { driver: 'joystick', config: './config/logitech-f310' }
+    controller: { driver: "joystick", config: "./config/logitech-f310" }
   },
 
   work: function(my) {

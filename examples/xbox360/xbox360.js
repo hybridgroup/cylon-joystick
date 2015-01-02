@@ -1,17 +1,19 @@
-var Cylon = require('cylon');
+"use strict";
+
+var Cylon = require("cylon");
 
 Cylon.robot({
   connections: {
-    joystick: { adaptor: 'joystick' }
+    joystick: { adaptor: "joystick" }
   },
 
   devices: {
-    controller: { driver: 'xbox-360' }
+    controller: { driver: "xbox-360" }
   },
 
   work: function(my) {
     ["a", "b", "x", "y"].forEach(function(button) {
-      console.log('Registered listener:', button);
+      console.log("Registered listener:", button);
 
       my.controller.on(button + ":press", function() {
         console.log("Button " + button + " pressed.");

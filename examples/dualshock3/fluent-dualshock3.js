@@ -1,10 +1,12 @@
-var Cylon = require('cylon');
+"use strict";
+
+var Cylon = require("cylon");
 
 Cylon
   .robot()
-  .connection('joystick', { adaptor: 'joystick' })
-  .device('controller', { driver: 'dualshock-3' })
-  .on('ready', function(my) {
+  .connection("joystick", { adaptor: "joystick" })
+  .device("controller", { driver: "dualshock-3" })
+  .on("ready", function(my) {
     ["square", "circle", "x", "triangle"].forEach(function(button) {
       my.controller.on(button + ":press", function() {
         console.log("Button " + button + " pressed.");

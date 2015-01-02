@@ -1,9 +1,10 @@
-'use strict';
+/* jshint expr:true */
+"use strict";
 
-var Cylon = require('cylon'),
-    gamepad = require('gamepad');
+var Cylon = require("cylon"),
+    gamepad = require("gamepad");
 
-var Adaptor = source('adaptor');
+var Adaptor = source("adaptor");
 
 describe("Adaptor", function() {
   var adaptor = new Adaptor();
@@ -17,10 +18,10 @@ describe("Adaptor", function() {
       adaptor = new Adaptor();
     });
 
-    it('sets @connector and @joystick to null by default', function() {
+    it("sets @connector and @joystick to null by default", function() {
       expect(adaptor.connector).to.be.eql(null);
       expect(adaptor.joystick).to.be.eql(null);
-    })
+    });
   });
 
   describe("#connect", function() {
@@ -31,10 +32,10 @@ describe("Adaptor", function() {
 
       callback = spy();
 
-      stub(gamepad, 'init');
-      stub(gamepad, 'numDevices');
-      stub(gamepad, 'processEvents');
-      stub(gamepad, 'detectDevices');
+      stub(gamepad, "init");
+      stub(gamepad, "numDevices");
+      stub(gamepad, "processEvents");
+      stub(gamepad, "detectDevices");
     });
 
     afterEach(function() {
@@ -51,7 +52,7 @@ describe("Adaptor", function() {
         gamepad.numDevices.returns(0);
       });
 
-      it('throws an error', function() {
+      it("throws an error", function() {
         var fn = function() { adaptor.connect(callback); };
         expect(fn).to.throw(Error, "No Joysticks available.");
       });
@@ -78,8 +79,8 @@ describe("Adaptor", function() {
 
       ["attach", "remove", "move", "up", "down"].forEach(function(event) {
         it("proxies events for '" + event + "'", function() {
-          gamepad.emit(event, 'hello');
-          expect(adaptor.emit).to.be.calledWith(event, 'hello');
+          gamepad.emit(event, "hello");
+          expect(adaptor.emit).to.be.calledWith(event, "hello");
         });
       });
     });
@@ -87,8 +88,8 @@ describe("Adaptor", function() {
 
   describe("#getDevices", function() {
     beforeEach(function() {
-      stub(gamepad, 'numDevices').returns(1);
-      stub(gamepad, 'deviceAtIndex').returns({ id: 0 });
+      stub(gamepad, "numDevices").returns(1);
+      stub(gamepad, "deviceAtIndex").returns({ id: 0 });
     });
 
     afterEach(function() {
