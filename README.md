@@ -110,6 +110,8 @@ Thank you!
 
 ## Release History
 
+Version 0.13.0 - Add `cylon-joystick-explorer` binary
+
 Version 0.12.0 - Compatibility with Cylon 0.21.0
 
 Version 0.11.1 - Update gamepad module version to 1.0.2
