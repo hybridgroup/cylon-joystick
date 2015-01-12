@@ -13,6 +13,10 @@
     "url": "https://github.com/hybridgroup/cylon-joystick"
   },
 
+  "bin": {
+    "cylon-joystick-explorer": "./bin/cylon-joystick-explorer"
+  },
+
   "license": "Apache 2.0",
 
   "devDependencies": {

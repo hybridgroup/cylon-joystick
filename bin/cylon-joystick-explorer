@@ -1,0 +1,97 @@
+#!/usr/bin/env node
+
+"use strict";
+
+var readline = require("readline");
+
+var rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+var gamepad = require("gamepad");
+
+function devices() {
+  var dev = [];
+
+  for (var i = 0, l = gamepad.numDevices(); i < l; i++) {
+    dev.push(gamepad.deviceAtIndex(i));
+  }
+
+  return dev;
+}
+
+function printDevices() {
+  devices().forEach(function(device) {
+    var str = [
+      "",
+      "  ID:          " + device.deviceID,
+      "  Vendor ID:   " + device.vendorID,
+      "  Product ID:  " + device.productID,
+      "  Description: " + device.description,
+      ""
+    ].join("\n");
+
+    console.log(str);
+  });
+}
+
+// apologies for the recursion, but I don't think readline's #question
+// implementation supports re-asking for input, so...
+function chooseDevice(question, callback) {
+  rl.question(question, function(answer) {
+    var ids = devices().map(function(d) { return d.deviceID.toString(); });
+
+    if (answer === "?") {
+      printDevices();
+      return chooseDevice("Which would you like to use? ", callback);
+    }
+
+    if (!/^\d+$/.test(answer) || !~ids.indexOf(answer)) {
+      console.log("Invalid input.");
+      console.log("Enter the ID of the device you'd like to see events for.");
+      return chooseDevice("Enter '?' to see available devices. ", callback);
+    }
+
+    callback(answer);
+    rl.close();
+  });
+}
+
+// initialize, start polling for events
+gamepad.init();
+setInterval(gamepad.processEvents, 16);
+
+console.log("Cylon-Joystick Explorer");
+
+if (gamepad.numDevices() === 0) {
+  console.log("No SDL-compatible gamepads are currently connected.");
+  process.exit();
+}
+
+console.log("The current SDL-compatible devices are connected:");
+
+printDevices();
+
+console.log("Which of these devices would you like to see events for?");
+
+chooseDevice("Enter the device's ID now, and hit return/enter: ", function(id) {
+  var device = gamepad.deviceAtIndex(id);
+
+  console.log("Listening for events from '" + device.description + "'");
+
+  gamepad.on("move", function (deviceId, axis, value) {
+    if (deviceId.toString() !== id) { return; }
+    console.log("move", { axis: axis, value: value });
+  });
+
+  gamepad.on("up", function (deviceId, num) {
+    if (deviceId.toString() !== id) { return; }
+    console.log("up", { num: num });
+  });
+
+  gamepad.on("down", function (deviceId, num) {
+    if (deviceId.toString() !== id) { return; }
+    console.log("down", { num: num });
+  });
+});
