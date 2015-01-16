@@ -6,10 +6,16 @@ var Cylon = require("cylon");
 var Driver = source("driver"),
     Config = source("config/dualshock_3");
 
+var EventEmitter = require("events").EventEmitter;
+
 describe("Driver", function() {
-  var driver = new Driver({
-    connection: {},
-    config: "./config/dualshock_3"
+  var driver;
+
+  beforeEach(function() {
+    driver = new Driver({
+      connection: new EventEmitter(),
+      config: "./config/dualshock_3"
+    });
   });
 
   it("is a subclass of Cylon.Driver", function() {
@@ -57,6 +63,45 @@ describe("Driver", function() {
 
     it("listens for 'down' events", function() {
       expect(driver.connection.on).to.be.calledWith("down");
+    });
+  });
+
+  describe("on event", function() {
+    beforeEach(function() {
+      driver.controllerId = 1;
+      driver.emit = spy();
+
+      driver.handleJoystickEvents();
+    });
+
+    describe("move", function() {
+      beforeEach(function() {
+        driver.connection.emit("move", 1, 1, 0.5);
+      });
+
+      it("emits the axis:move event with the movement value", function() {
+        expect(driver.emit).to.be.calledWith("left_y:move", 0.5);
+      });
+    });
+
+    describe("down", function() {
+      beforeEach(function() {
+        driver.connection.emit("down", 1, 15);
+      });
+
+      it("emits the button:press event", function() {
+        expect(driver.emit).to.be.calledWith("square:press");
+      });
+    });
+
+    describe("up", function() {
+      beforeEach(function() {
+        driver.connection.emit("up", 1, 12);
+      });
+
+      it("emits the button:release event", function() {
+        expect(driver.emit).to.be.calledWith("triangle:release");
+      });
     });
   });
 
