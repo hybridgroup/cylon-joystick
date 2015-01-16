@@ -74,6 +74,18 @@ describe("Driver", function() {
       driver.handleJoystickEvents();
     });
 
+    context("if the event is for a different controller", function() {
+      beforeEach(function() {
+        driver.connection.emit("move", 0, 1, 0.5);
+        driver.connection.emit("down", 0, 15);
+        driver.connection.emit("up", 0, 12);
+      });
+
+      it("does not emit any events", function() {
+        expect(driver.emit).to.not.be.called;
+      });
+    });
+
     describe("move", function() {
       beforeEach(function() {
         driver.connection.emit("move", 1, 1, 0.5);
