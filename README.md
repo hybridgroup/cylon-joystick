@@ -17,7 +17,7 @@ Want to use the Go programming language to power your robots? Check out our sist
 ## How to Install
 Installing Cylon.js with Joystick support is pretty easy.
 
-    $ npm install cylon-joystick
+    $ npm install cylon cylon-joystick
 
 ### Note
 
