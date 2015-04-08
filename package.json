@@ -1,6 +1,6 @@
 {
   "name": "cylon-joystick",
-  "version": "0.14.0",
+  "version": "0.15.0",
   "main": "lib/cylon-joystick.js",
   "description": "Cylon module for any HID joystick",
   "homepage": "http://cylonjs.com",
@@ -28,7 +28,7 @@
   },
 
   "dependencies": {
-    "cylon": "~0.22.0",
+    "cylon": "~1.0.0",
     "gamepad": "~1.0.2"
   }
 }
