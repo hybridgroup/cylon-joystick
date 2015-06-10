@@ -17,7 +17,20 @@
     "cylon-joystick-explorer": "./bin/cylon-joystick-explorer"
   },
 
-  "license": "Apache 2.0",
+  "license": "Apache-2.0",
+
+  "keywords": [
+    "cylon",
+    "cylonjs",
+    "cylons",
+    "robot",
+    "robots",
+    "robotics",
+    "iot",
+    "hardware",
+    "joystick",
+    "gamepad"
+  ],
 
   "devDependencies": {
     "sinon-chai": "~2.4.0",
