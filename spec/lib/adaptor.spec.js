@@ -1,10 +1,9 @@
-/* jshint expr:true */
 "use strict";
 
 var Cylon = require("cylon"),
     gamepad = require("gamepad");
 
-var Adaptor = source("adaptor");
+var Adaptor = lib("adaptor");
 
 describe("Adaptor", function() {
   var adaptor = new Adaptor();

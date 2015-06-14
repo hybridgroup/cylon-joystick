@@ -1,10 +1,9 @@
-/* jshint expr:true */
 "use strict";
 
 var Cylon = require("cylon");
 
-var Driver = source("driver"),
-    Config = source("config/dualshock_3");
+var Driver = lib("driver"),
+    Config = lib("config/dualshock_3");
 
 var EventEmitter = require("events").EventEmitter;
 

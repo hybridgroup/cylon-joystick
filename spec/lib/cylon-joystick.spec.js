@@ -1,14 +1,15 @@
-/* jshint expr:true */
 "use strict";
 
-var joystick = source("cylon-joystick");
+var joystick = lib("cylon-joystick");
 
-var Adaptor = source("adaptor"),
-    Driver = source("driver");
+var Adaptor = lib("adaptor"),
+    Driver = lib("driver");
+
+var path = require("path");
 
 var Config = {
-  DualShock3: source("config/dualshock_3"),
-  Xbox360: source("config/xbox_360"),
+  DualShock3: lib("config/dualshock_3"),
+  Xbox360: lib("config/xbox_360"),
   Custom: require("../support/custom")
 };
 
@@ -63,7 +64,7 @@ describe("Cylon.Joystick", function() {
     context("when opts.driver is 'joystick'", function() {
       beforeEach(function() {
         opts.driver = "joystick";
-        opts.config = __dirname + "/../support/custom.json";
+        opts.config = path.join(__dirname, "/../support/custom.json");
       });
 
       it("returns a new instance of Driver, with custom config", function() {
