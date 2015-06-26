@@ -1,6 +1,6 @@
 "use strict";
 
-var joystick = lib("cylon-joystick");
+var joystick = lib("../");
 
 var Adaptor = lib("adaptor"),
     Driver = lib("driver");
