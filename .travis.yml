@@ -12,8 +12,8 @@ before_install:
 
 install:
   - sudo apt-get install --force-yes libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev libsdl2
-  - npm install -g node-gyp jshint istanbul codeclimate-test-reporter
-  - node-gyp install
+  - npm install -g node-gyp-install jshint istanbul codeclimate-test-reporter
+  - node-gyp-install
   - npm install
   - npm install git://github.com/hybridgroup/cylon.git
 
