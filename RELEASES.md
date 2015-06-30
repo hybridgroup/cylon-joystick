@@ -1,5 +1,7 @@
 ## Release History
 
+Version 0.16.0 - Update dependencies, compatibility with Node v0.12/iojs
+
 Version 0.15.0 - Compatibility with Cylon 1.0.0
 
 Version 0.14.0 - Compatibility with Cylon 0.22.0
