@@ -1,35 +1,34 @@
 {
-  "description": "Generic X-Box pad",
+  "description": "Logitech F310",
 
-  "vendorID": 1133,
-  "productID": 49693,
+  "vendorID": 1118,
+  "productID": 654,
+
 
   "axis": [
     { "name": "left_x", "id": 0 },
     { "name": "left_y", "id": 1 },
-    { "name": "right_x", "id": 3 },
-    { "name": "right_y", "id": 4 },
-    { "name": "lt", "id": 2 },
-    { "name": "rt", "id": 5 },
-    { "name": "d-pad_x", "id": 6 },
-    { "name": "d-pad_y", "id": 7 }
+    { "name": "right_x", "id": 2 },
+    { "name": "right_y", "id": 3 },
+    { "name": "left_z", "id": 4 },
+    { "name": "right_z", "id": 5 }
   ],
 
   "buttons": [
-    { "name": "y", "id": 3 },
-    { "name": "x", "id": 2 },
-    { "name": "b", "id": 1 },
-    { "name": "a", "id": 0 },
-
-    { "name": "left_stick", "id": 9 },
-    { "name": "right_stick", "id": 10 },
-
-    { "name": "lb", "id": 4 },
-    { "name": "rb", "id": 5 },
-
-    { "name": "select", "id": 6 },
-    { "name": "start", "id": 7 },
-
-    { "name": "home", "id": 8 }
+    { "name": "up",  "id": 0 },
+    { "name": "down",  "id": 1 },
+    { "name": "left",  "id": 2 },
+    { "name": "right",  "id": 3 },
+    { "name": "start",  "id": 4 },
+    { "name": "select",  "id": 5 },
+    { "name": "ls",  "id": 6 },
+    { "name": "rs",  "id": 7 },
+    { "name": "lb",  "id": 8 },
+    { "name": "rb",  "id": 9 },
+    { "name": "a", "id": 10 },
+    { "name": "b", "id": 11 },
+    { "name": "y", "id": 12 },
+    { "name": "x", "id": 13 },
+    { "name": "home", "id": 14 }
   ]
 }
