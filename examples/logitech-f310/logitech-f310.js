@@ -8,7 +8,7 @@ Cylon.robot({
 		},
 
 		devices: {
-				controller: { driver: "joystick", config: "./config/f310" }
+				controller: { driver: "joystick", config: "./config/logitech-f310" }
 		},
 
 		work: function(my) {
