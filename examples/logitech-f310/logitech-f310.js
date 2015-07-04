@@ -12,7 +12,7 @@ Cylon.robot({
   },
 
   work: function(my) {
-    ["a", "b", "x", "y"].forEach(function(button) {
+    ["a", "b", "x", "y", "left_stick", "right_stick", "left", "right", "back", "start", "pad-left", "pad-right", "pad-up", "pad-down"].forEach(function(button) {
       my.controller.on(button + ":press", function() {
         console.log("Button " + button + " pressed.");
       });
@@ -36,6 +36,14 @@ Cylon.robot({
 
     my.controller.on("right_y:move", function(pos) {
       console.log("Right Stick - Y:", pos);
+    });
+
+    my.controller.on("left_throttle:move", function(pos) {
+      console.log("Left Throttle:", pos);
+    });
+
+    my.controller.on("right_throttle:move", function(pos) {
+      console.log("Right Throttle:", pos);
     });
   }
 });
