@@ -23,7 +23,7 @@ describe("Cylon.Joystick", function() {
   describe("#drivers", function() {
     it("is an array of supplied drivers", function() {
       expect(joystick.drivers).to.be.eql(
-        ["dualshock-3", "xbox-360", "joystick"]
+        ["dualshock-3", "dualshock-4", "xbox-360", "joystick"]
       );
     });
   });

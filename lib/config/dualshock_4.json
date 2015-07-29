@@ -1,0 +1,39 @@
+{
+  "description": "PLAYSTATION(R)4 Controller",
+
+  "vendorID": 1356,
+  "productID": 1476,
+
+  "axis": [
+    { "name": "left_x", "id": 0 },
+    { "name": "left_y", "id": 1 },
+    { "name": "right_x", "id": 2 },
+    { "name": "right_y", "id": 5 }
+  ],
+
+  "buttons": [
+    { "name": "square", "id": 0 },
+    { "name": "triangle", "id": 3 },
+    { "name": "circle", "id": 2 },
+    { "name": "x", "id": 1 },
+
+    { "name": "up", "id": 11 },
+    { "name": "down", "id": 6 },
+    { "name": "left", "id": 7 },
+    { "name": "right", "id": 5 },
+
+    { "name": "left_stick", "id": 1 },
+    { "name": "right_stick", "id": 2 },
+
+    { "name": "l1", "id": 4 },
+    { "name": "l2", "id": 6 },
+
+    { "name": "r1", "id": 5 },
+    { "name": "r2", "id": 7 },
+
+    { "name": "share", "id": 8 },
+    { "name": "options", "id": 9 },
+
+    { "name": "home", "id": 12 }
+  ]
+}
