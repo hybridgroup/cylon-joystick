@@ -1,5 +1,7 @@
 ## Release History
 
+Version 0.18.0 - Update F310 config, add DualShock 4 profile
+
 Version 0.17.0 - Use Cylon 1.1.0
 
 Version 0.16.0 - Update dependencies, compatibility with Node v0.12/iojs
