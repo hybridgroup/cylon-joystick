@@ -13,7 +13,7 @@ var Drivers = {
 
 module.exports = {
   adaptors: ["joystick"],
-  drivers: ["dualshock-3", "dualshock-4","xbox-360", "joystick"],
+  drivers: ["dualshock-3", "dualshock-4", "xbox-360", "joystick"],
 
   adaptor: function(opts) {
     return new Adaptor(opts);
