@@ -1,6 +1,6 @@
 {
   "name": "cylon-joystick",
-  "version": "0.18.0",
+  "version": "0.19.0",
   "description": "Cylon module for any HID joystick",
   "homepage": "http://cylonjs.com",
   "bugs": "https://github.com/hybridgroup/cylon-joystick/issues",
@@ -28,7 +28,14 @@
     "iot",
     "hardware",
     "joystick",
-    "gamepad"
+    "gamepad",
+    "xbox",
+    "xbox360",
+    "ps2",
+    "ps3",
+    "dualshock",
+    "dualshock3",
+    "dualshock4"
   ],
 
   "devDependencies": {
@@ -40,7 +47,7 @@
   },
 
   "dependencies": {
-    "cylon": "~1.1.0",
+    "cylon": "~1.2.0",
     "gamepad": "~1.1.0"
   }
 }

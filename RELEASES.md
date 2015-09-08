@@ -1,5 +1,7 @@
 ## Release History
 
+Version 0.19.0 - Updated for Cylon 1.2.0
+
 Version 0.18.0 - Update F310 config, add DualShock 4 profile
 
 Version 0.17.0 - Use Cylon 1.1.0
