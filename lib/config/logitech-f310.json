@@ -1,46 +1,14 @@
 {
   "description": "Logitech F310",
-<<<<<<< HEAD
 
   "vendorID": 1118,
   "productID": 654,
-=======
-
-  "vendorID": 1118,
-  "productID": 654,
-
->>>>>>> 21f42c5f69a7a1e634b2c198066a022aac975d89
 
   "axis": [
     { "name": "left_x", "id": 0 },
     { "name": "left_y", "id": 1 },
     { "name": "right_x", "id": 2 },
     { "name": "right_y", "id": 3 },
-<<<<<<< HEAD
-    { "name": "left_throttle", "id": 4 },
-    { "name": "right_throttle", "id": 5 }
-  ],
-
-  "buttons": [
-    { "name": "pad-left", "id": 2 },
-    { "name": "pad-right", "id": 3 },
-    { "name": "pad-up", "id": 0 },
-    { "name": "pad-down", "id": 1 },
-
-    { "name": "y", "id": 13 },
-    { "name": "x", "id": 12 },
-    { "name": "b", "id": 11 },
-    { "name": "a", "id": 10 },
-
-    { "name": "left_stick", "id": 6 },
-    { "name": "right_stick", "id": 7 },
-
-    { "name": "left", "id": 8 },
-    { "name": "right", "id": 9 },
-
-    { "name": "back", "id": 5 },
-    { "name": "start", "id": 4 }
-=======
     { "name": "left_z", "id": 4 },
     { "name": "right_z", "id": 5 }
   ],
@@ -61,6 +29,5 @@
     { "name": "y", "id": 12 },
     { "name": "x", "id": 13 },
     { "name": "home", "id": 14 }
->>>>>>> 21f42c5f69a7a1e634b2c198066a022aac975d89
   ]
 }
