@@ -2,9 +2,9 @@
 
 Cylon.js (http://cylonjs.com) is a JavaScript framework for robotics, physical computing, and the Internet of Things (IoT).
 
-This repository contains the adaptor/driver for communicating with joysticks and game controllers. It can be used with any [SDL][http://www.libsdl.org/]-compatible controller. 
+This repository contains the adaptor/driver for communicating with joysticks and game controllers. It can be used with any [SDL][http://www.libsdl.org/]-compatible controller.
 
-Default bindings are provided for the Xbox 360, DualShock 3, and Logitech F310 controllers.
+Default bindings are provided for the Xbox 360, DualShock 3, DualShock 4, and Logitech F310 controllers.
 
 The cylon-gamepad implementation is made possible by the gamepad module [https://github.com/creationix/node-gamepad](https://github.com/creationix/node-gamepad) created by [@creationix](https://github.com/creationix) thank you!
 
