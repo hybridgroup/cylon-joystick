@@ -138,4 +138,4 @@ For the release history, please go to [https://github.com/hybridgroup/cylon-joys
 
 ## License
 
-Copyright (c) 2013-2015 The Hybrid Group. Licensed under the Apache 2.0 license.
+Copyright (c) 2013-2016 The Hybrid Group. Licensed under the Apache 2.0 license.
