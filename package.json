@@ -48,6 +48,6 @@
 
   "dependencies": {
     "cylon": "~1.2.0",
-    "gamepad": "~1.1.0"
+    "gamepad": "cronopio/node-gamepad#nodev4"
   }
 }
