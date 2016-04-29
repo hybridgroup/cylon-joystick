@@ -3,7 +3,8 @@ language: node_js
 node_js:
   - '0.10'
   - '0.12'
-  - 'iojs'
+  - '4'
+  - '5'
 
 before_install:
   - "mkdir -p ~/.npm"
@@ -20,3 +21,13 @@ install:
 script:
   - make ci
   - CODECLIMATE_REPO_TOKEN=bded29a8bea5cd83a6764ca7e863950c0f54002e0b4e5537c8df353e196dfb3a codeclimate-test-reporter < coverage/lcov.info
+
+env:
+  - CXX=g++-4.8
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - gcc-4.8
+      - g++-4.8
