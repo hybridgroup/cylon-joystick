@@ -1,5 +1,7 @@
 ## Release History
 
+Version 0.20.0 - Update to Cylon 1.3 and Node 4/5 compatible fork of node-gamepad
+
 Version 0.19.1 - Bugfixes for Dualshock4 & F310 configs
 
 Version 0.19.0 - Updated for Cylon 1.2.0
