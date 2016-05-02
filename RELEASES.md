@@ -1,5 +1,7 @@
 ## Release History
 
+Version 0.21.0 - Allow overrides to productID, vendorID, & description for white-label gamepads
+
 Version 0.20.0 - Update to Cylon 1.3 and Node 4/5 compatible fork of node-gamepad
 
 Version 0.19.1 - Bugfixes for Dualshock4 & F310 configs
