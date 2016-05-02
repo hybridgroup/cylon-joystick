@@ -40,7 +40,8 @@ describe("Driver", function() {
           return [{
             deviceID: 0,
             vendorID: 1356,
-            productID: 616
+            productID: 616,
+            description: "PLAYSTATION(R)3 Controller"
           }];
         }
       };
