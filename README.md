@@ -99,11 +99,19 @@ Cylon.robot({
 }).start();
 ```
 
-A joystick bindings file needs to contain the device's `productID` and `vendorID`, as this is how cylon-joystick will find the appropriate device.
+A joystick bindings file needs to contain the device's `productID`, `vendorID`, and `description`, as this is how cylon-joystick will find the appropriate device.
 
 For an example of what a bindings file should look like, [here is the Xbox 360 controller bindings file we use][xbox-bindings].
 
 [xbox-bindings]: https://github.com/hybridgroup/cylon-joystick/blob/master/lib/config/xbox_360.json
+
+If you are using a "white-label" version of a particular gamepad, you can override the `productID`, `vendorID`, and/or `description` so you can use an existing mapping. For example, a PS3 compatible gamepad that uses the same `vendorID` & `productID`, but a different name, you could use the existing Dualshock 3 mapping as follows:
+
+```javascript
+  devices: {
+    controller: { driver: 'dualshock-3', description: 'Coolstick 5000' }
+  },
+```
 
 ## `cylon-joystick-explorer`
 
